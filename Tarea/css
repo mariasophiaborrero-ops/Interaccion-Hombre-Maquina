@@ -1,0 +1,28 @@
+
+body {
+    background-color: lightblue; /* Color de fondo */
+    font-family: Arial;          /* Tipo de letra */
+    color: black;                /* Color del texto */
+}
+
+h1 {
+    color: darkblue;             /* Color del título principal */
+}
+
+h2 {
+    color: blue;                 /* Color del subtítulo */
+}
+
+p {
+    font-size: 16px;             /* Tamaño del párrafo */
+}
+
+img {
+    width: 200px;                /* Ancho de las imágenes */
+    border: 2px solid black;     /* Borde negro */
+}
+
+ul, ol {
+    background-color: white;     /* Fondo blanco en las listas */
+    padding: 10px;               /* Espacio interno */
+}
