@@ -1,0 +1,581 @@
+/* ============================================================
+   ARCHIVO: estilos.css
+   PROPÓSITO: Aprender CSS con comentarios explicativos
+   Cada sección explica QUÉ hace y POR QUÉ se usa cada propiedad
+   ============================================================ */
+
+
+/* ============================================================
+   1. RESET Y ESTILOS BASE
+   ============================================================
+   Los navegadores aplican estilos por defecto (márgenes, padding, etc.)
+   Un "reset" elimina esas diferencias para que todo sea predecible.
+*/
+
+* {
+  /* El asterisco (*) selecciona TODOS los elementos de la página */
+  
+  box-sizing: border-box;
+  /* box-sizing: border-box → hace que el padding y el border se incluyan
+     DENTRO del ancho total del elemento. Sin esto, añadir padding
+     agrandaría el elemento inesperadamente. */
+
+  margin: 0;
+  /* Elimina el margen exterior que los navegadores ponen por defecto */
+
+  padding: 0;
+  /* Elimina el relleno interior que los navegadores ponen por defecto */
+}
+
+body {
+  /* 'body' selecciona el cuerpo principal de la página */
+
+  font-family: 'Georgia', serif;
+  /* font-family: define la fuente del texto.
+     Se pueden listar varias separadas por coma: si la primera no existe,
+     el navegador prueba la siguiente. 'serif' es una fuente genérica de respaldo. */
+
+  background-color: #f5f0e8;
+  /* background-color: el color de fondo de toda la página.
+     Se puede escribir como nombre ('red'), hexadecimal (#f5f0e8),
+     rgb(245, 240, 232) o hsl(40, 33%, 94%). */
+
+  color: #2c2c2c;
+  /* color: el color del texto. Afecta a todos los elementos dentro
+     de body que no tengan su propio color definido. */
+
+  line-height: 1.7;
+  /* line-height: el espacio entre líneas de texto.
+     1.7 significa 1.7 veces el tamaño de la fuente actual.
+     Más valor = líneas más separadas = más fácil de leer. */
+}
+
+
+/* ============================================================
+   2. ENCABEZADO
+   ============================================================
+   Aquí vemos cómo se estila un bloque completo con fondo,
+   texto centrado, y separación interna (padding).
+*/
+
+.encabezado {
+  /* El punto (.) antes del nombre indica que es una CLASE.
+     Afecta a cualquier elemento que tenga class="encabezado" en el HTML. */
+
+  background-color: #1a1a2e;
+  /* Fondo oscuro azul-noche para el encabezado */
+
+  color: #e8d5b7;
+  /* Color crema para el texto, contrasta bien con el fondo oscuro */
+
+  text-align: center;
+  /* text-align: alinea el texto horizontalmente.
+     Valores posibles: left | center | right | justify */
+
+  padding: 60px 20px;
+  /* padding: espacio interior entre el borde del elemento y su contenido.
+     Con 2 valores: padding: arriba/abajo   izquierda/derecha
+     Con 4 valores: padding: arriba  derecha  abajo  izquierda (sentido horario) */
+}
+
+.encabezado h1 {
+  /* Selecciona el h1 que esté DENTRO de un elemento con clase .encabezado */
+
+  font-size: 3rem;
+  /* font-size: tamaño del texto.
+     'rem' = relativo al tamaño base del documento (generalmente 16px).
+     3rem = 3 × 16px = 48px. Es mejor que 'px' porque respeta
+     las preferencias de accesibilidad del usuario. */
+
+  letter-spacing: -1px;
+  /* letter-spacing: espacio entre cada letra.
+     Negativo = letras más juntas (efecto de título elegante). */
+
+  margin-bottom: 15px;
+  /* margin-bottom: espacio exterior DEBAJO del elemento.
+     Crea separación visual entre el h1 y el párrafo siguiente. */
+}
+
+.subtitulo {
+  font-size: 1.1rem;
+  opacity: 0.8;
+  /* opacity: transparencia del elemento (0 = invisible, 1 = completamente visible).
+     0.8 hace el texto ligeramente transparente, creando jerarquía visual. */
+}
+
+
+/* ============================================================
+   3. SECCIONES GENERALES
+   ============================================================
+   Estilos compartidos que aplican a todas las secciones.
+*/
+
+.seccion {
+  max-width: 800px;
+  /* max-width: el ancho máximo que puede tener el elemento.
+     El elemento puede ser más angosto, pero nunca más ancho que esto.
+     Útil para que el contenido no se extienda infinitamente en pantallas grandes. */
+
+  margin: 40px auto;
+  /* margin: espacio exterior alrededor del elemento.
+     'auto' en izquierda/derecha = centra el elemento horizontalmente.
+     Equivale a: margin: 40px auto 40px auto */
+
+  padding: 35px 40px;
+  /* Espacio interno: 35px arriba/abajo, 40px izquierda/derecha */
+
+  background-color: #ffffff;
+  /* Fondo blanco para cada sección, contrasta con el fondo beige del body */
+
+  border-radius: 12px;
+  /* border-radius: redondea las esquinas del elemento.
+     12px = ligeramente redondeado. Con 50% se crea un círculo. */
+
+  border-left: 5px solid #1a1a2e;
+  /* border: dibuja un borde alrededor del elemento.
+     Sintaxis: grosor  estilo  color
+     'border-left' aplica solo al lado izquierdo → crea una barra decorativa. */
+
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  /* box-shadow: sombra detrás del elemento.
+     Valores: desplazamiento-X  desplazamiento-Y  difuminado  color
+     rgba(0,0,0, 0.08) = negro con 8% de opacidad → sombra muy sutil. */
+}
+
+.seccion h2 {
+  font-size: 1.6rem;
+  margin-bottom: 15px;
+  color: #1a1a2e;
+  border-bottom: 2px dashed #e8d5b7;
+  /* border-bottom: borde solo en la parte inferior.
+     'dashed' = línea punteada. Otros estilos: solid, dotted, double. */
+  padding-bottom: 10px;
+  /* Espacio entre el texto del h2 y la línea punteada */
+}
+
+
+/* ============================================================
+   4. COLORES Y FONDOS
+   ============================================================
+   Ejemplos de las distintas formas de aplicar color en CSS.
+*/
+
+.caja-color {
+  background-color: #e8d5b7;
+  /* Fondo usando color hexadecimal */
+
+  color: #1a1a2e;
+  /* Texto oscuro para que contraste con el fondo claro */
+
+  padding: 20px;
+  /* Relleno interior para que el texto no esté pegado al borde */
+
+  border-radius: 8px;
+  font-weight: bold;
+  /* font-weight: grosor del texto.
+     Valores: normal (400) | bold (700) | o números del 100 al 900 */
+
+  text-align: center;
+  margin-top: 15px;
+}
+
+
+/* ============================================================
+   5. TIPOGRAFÍA
+   ============================================================
+   CSS tiene muchas propiedades para controlar cómo se ve el texto.
+*/
+
+.texto-grande {
+  font-size: 1.8rem;
+  /* Texto más grande que el normal */
+  margin-bottom: 8px;
+}
+
+.texto-negrita {
+  font-weight: 700;
+  /* 700 = negrita. El valor normal es 400. */
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.texto-cursiva {
+  font-style: italic;
+  /* font-style: italic = cursiva. También puede ser 'normal' u 'oblique'. */
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.texto-espaciado {
+  letter-spacing: 4px;
+  /* Espacio entre letras exagerado para ver el efecto */
+  text-transform: uppercase;
+  /* text-transform: transforma el texto.
+     uppercase = todo en MAYÚSCULAS
+     lowercase = todo en minúsculas
+     capitalize = Primera Letra En Mayúscula */
+  font-size: 0.85rem;
+  color: #888;
+}
+
+
+/* ============================================================
+   6. EL BOX MODEL (Modelo de Caja)
+   ============================================================
+   CONCEPTO FUNDAMENTAL: todo elemento HTML es una caja rectangular.
+   Desde adentro hacia afuera:
+   
+   ┌──────────────────────────────┐
+   │           MARGIN             │  ← Espacio EXTERIOR (transparente)
+   │  ┌────────────────────────┐  │
+   │  │        BORDER          │  │  ← El borde visible
+   │  │  ┌──────────────────┐  │  │
+   │  │  │     PADDING      │  │  │  ← Espacio INTERIOR (con color de fondo)
+   │  │  │  ┌────────────┐  │  │  │
+   │  │  │  │  CONTENIDO │  │  │  │  ← El texto o imagen real
+   │  │  │  └────────────┘  │  │  │
+   │  │  └──────────────────┘  │  │
+   │  └────────────────────────┘  │
+   └──────────────────────────────┘
+*/
+
+.demo-box {
+  width: 250px;
+  /* width: ancho del CONTENIDO del elemento (no incluye padding ni border
+     gracias al box-sizing: border-box que pusimos arriba) */
+
+  padding: 25px;
+  /* PADDING: espacio entre el contenido y el borde.
+     Tiene el color de fondo del elemento. */
+
+  border: 4px solid #1a1a2e;
+  /* BORDER: línea visible alrededor del padding */
+
+  margin: 20px auto;
+  /* MARGIN: espacio exterior, fuera del borde.
+     Es transparente (se ve el fondo del padre). */
+
+  background-color: #e8d5b7;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 6px;
+}
+
+
+/* ============================================================
+   7. FLEXBOX
+   ============================================================
+   Flexbox es un sistema para organizar elementos en fila o columna.
+   Se activa en el CONTENEDOR PADRE con display: flex.
+*/
+
+.flex-contenedor {
+  display: flex;
+  /* display: flex → activa Flexbox en este elemento.
+     Los hijos directos se convierten en "flex items". */
+
+  flex-direction: row;
+  /* flex-direction: la dirección de los elementos.
+     row = horizontal (por defecto) | column = vertical */
+
+  justify-content: space-around;
+  /* justify-content: distribuye elementos en el eje PRINCIPAL (horizontal si es row).
+     flex-start | center | flex-end | space-between | space-around | space-evenly */
+
+  align-items: center;
+  /* align-items: alinea elementos en el eje SECUNDARIO (vertical si es row).
+     stretch | center | flex-start | flex-end | baseline */
+
+  gap: 15px;
+  /* gap: espacio entre los elementos flex.
+     Más cómodo que usar margin en cada elemento. */
+
+  flex-wrap: wrap;
+  /* flex-wrap: si los elementos no caben en una línea, pasan a la siguiente.
+     nowrap (por defecto) | wrap | wrap-reverse */
+
+  padding: 20px;
+  background-color: #f5f0e8;
+  border-radius: 8px;
+  margin-top: 15px;
+}
+
+.flex-item {
+  background-color: #1a1a2e;
+  color: #e8d5b7;
+
+  width: 80px;
+  height: 80px;
+  /* Definimos que sea un cuadrado de 80x80 píxeles */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Usamos flex TAMBIÉN en el item para centrar el número dentro */
+
+  border-radius: 50%;
+  /* 50% en border-radius = círculo perfecto (si width == height) */
+
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+
+/* ============================================================
+   8. POSICIONAMIENTO
+   ============================================================
+   CSS tiene 5 tipos de posicionamiento que controlan DÓNDE
+   aparece un elemento en la página.
+*/
+
+.pos-contenedor {
+  position: relative;
+  /* position: relative en el padre sirve como "punto de referencia"
+     para los hijos con position: absolute */
+
+  height: 160px;
+  /* Altura fija para que se vea el posicionamiento */
+
+  background-color: #f5f0e8;
+  border-radius: 8px;
+  margin-top: 15px;
+  padding: 15px;
+}
+
+.pos-normal {
+  /* Sin ninguna posición definida = static (comportamiento normal).
+     El elemento fluye en el documento de arriba a abajo. */
+  background-color: #c8e6c9;
+  padding: 8px 14px;
+  border-radius: 4px;
+  display: inline-block;
+  /* display: inline-block → el elemento se muestra en línea
+     pero acepta width y height como un bloque. */
+}
+
+.pos-relativo {
+  position: relative;
+  /* position: relative → el elemento se puede mover con top/left/right/bottom
+     RELATIVO a su posición original. El espacio original se conserva. */
+
+  top: 10px;
+  left: 20px;
+  /* Mueve el elemento 10px hacia abajo y 20px hacia la derecha
+     respecto a donde estaría normalmente */
+
+  background-color: #fff9c4;
+  padding: 8px 14px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.pos-absoluto {
+  position: absolute;
+  /* position: absolute → el elemento se saca del flujo normal
+     y se posiciona relativo al ancestro más cercano con position: relative.
+     En este caso, .pos-contenedor. */
+
+  top: 10px;
+  right: 10px;
+  /* Se posiciona a 10px del borde superior y derecho del .pos-contenedor */
+
+  background-color: #ffccbc;
+  padding: 8px 14px;
+  border-radius: 4px;
+}
+
+
+/* ============================================================
+   9. PSEUDO-CLASES
+   ============================================================
+   Las pseudo-clases permiten aplicar estilos según el ESTADO
+   del elemento. Se escriben con dos puntos (:) después del selector.
+*/
+
+.boton {
+  /* Estilos base del botón (sin interacción) */
+  background-color: #1a1a2e;
+  color: #e8d5b7;
+  border: none;
+  /* border: none → elimina el borde por defecto de los botones */
+  padding: 12px 28px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  /* cursor: pointer → cambia el cursor a una manita al pasar por encima.
+     Indica visualmente que el elemento es clickeable. */
+  margin-right: 20px;
+  transition: all 0.3s ease;
+  /* transition: prepara el elemento para animaciones suaves (lo veremos abajo) */
+}
+
+.boton:hover {
+  /* :hover → se aplica cuando el cursor ESTÁ ENCIMA del elemento */
+  background-color: #e8d5b7;
+  color: #1a1a2e;
+  transform: translateY(-3px);
+  /* transform: translateY(-3px) → mueve el elemento 3px hacia arriba.
+     Crea efecto de "levitar" al hacer hover. */
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.boton:active {
+  /* :active → se aplica en el momento exacto del CLIC */
+  transform: translateY(0);
+  /* Vuelve a la posición original al hacer clic (efecto de "presionar") */
+}
+
+.enlace {
+  color: #1a1a2e;
+  font-weight: bold;
+  text-decoration: none;
+  /* text-decoration: none → quita el subrayado por defecto de los enlaces */
+  border-bottom: 2px solid transparent;
+  /* Borde transparente para que el layout no cambie al hacer hover */
+  transition: border-color 0.3s ease;
+  display: inline-block;
+  margin-top: 15px;
+}
+
+.enlace:hover {
+  border-bottom-color: #1a1a2e;
+  /* Al hacer hover, el borde (que ya existe pero invisible) se vuelve visible.
+     Efecto de subrayado animado. */
+}
+
+.enlace:visited {
+  /* :visited → estilos para enlaces que el usuario ya visitó */
+  color: #888;
+}
+
+
+/* ============================================================
+   10. TRANSICIONES Y ANIMACIONES
+   ============================================================
+   CSS puede crear movimiento sin JavaScript.
+   
+   TRANSICIÓN: cambio suave entre dos estados (inicio → fin).
+   ANIMACIÓN: secuencia de estados definidos con @keyframes.
+*/
+
+/* --- ANIMACIÓN con @keyframes --- */
+
+@keyframes flotar {
+  /* @keyframes define los "fotogramas clave" de la animación.
+     'flotar' es el nombre que le damos (puede ser cualquier nombre). */
+
+  0% {
+    /* Al inicio (0%) */
+    transform: translateY(0px);
+    background-color: #1a1a2e;
+  }
+
+  50% {
+    /* A la mitad (50%) */
+    transform: translateY(-15px);
+    /* Sube 15px */
+    background-color: #e8643a;
+  }
+
+  100% {
+    /* Al final (100%) — vuelve al estado inicial para crear un bucle */
+    transform: translateY(0px);
+    background-color: #1a1a2e;
+  }
+}
+
+.caja-animada {
+  background-color: #1a1a2e;
+  color: #e8d5b7;
+  padding: 20px 30px;
+  border-radius: 8px;
+  text-align: center;
+  display: inline-block;
+  margin-top: 15px;
+  margin-right: 20px;
+  font-weight: bold;
+
+  animation-name: flotar;
+  /* animation-name: el nombre de los @keyframes que queremos usar */
+
+  animation-duration: 2s;
+  /* animation-duration: cuánto dura un ciclo completo */
+
+  animation-timing-function: ease-in-out;
+  /* animation-timing-function: la curva de velocidad.
+     ease = lento-rápido-lento | linear = velocidad constante
+     ease-in = empieza lento | ease-out = termina lento */
+
+  animation-iteration-count: infinite;
+  /* animation-iteration-count: cuántas veces se repite.
+     Un número específico o 'infinite' para siempre. */
+}
+
+/* --- TRANSICIÓN (transition) --- */
+
+.caja-hover-trans {
+  background-color: #e8d5b7;
+  color: #1a1a2e;
+  padding: 20px 30px;
+  border-radius: 8px;
+  text-align: center;
+  display: inline-block;
+  margin-top: 15px;
+  font-weight: bold;
+  cursor: pointer;
+
+  transition: background-color 0.4s ease, transform 0.4s ease, color 0.4s ease;
+  /* transition: define qué propiedades se animan y en cuánto tiempo.
+     Sintaxis: propiedad  duración  curva
+     Puedes listar múltiples separadas por coma.
+     La animación ocurre automáticamente al CAMBIAR el estado (ej: hover). */
+}
+
+.caja-hover-trans:hover {
+  background-color: #1a1a2e;
+  color: #e8d5b7;
+  transform: scale(1.05);
+  /* transform: scale(1.05) → agranda el elemento al 105% de su tamaño.
+     Gracias a 'transition', el cambio no es instantáneo sino suave. */
+}
+
+
+/* ============================================================
+   11. PIE DE PÁGINA
+   ============================================================ */
+
+.pie {
+  text-align: center;
+  padding: 30px;
+  color: #888;
+  font-size: 0.9rem;
+  margin-top: 20px;
+  border-top: 1px solid #ddd;
+  /* Línea separadora encima del pie de página */
+}
+
+code {
+  /* 'code' selecciona por etiqueta HTML (sin punto ni almohadilla) */
+  background-color: #eee;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  /* monospace = fuente de ancho fijo, típica de código */
+  font-size: 0.9em;
+  /* 'em' es relativo al tamaño del padre. 0.9em = 90% del tamaño actual. */
+}
+
+/* ============================================================
+   FIN DEL ARCHIVO
+   
+   RESUMEN DE SELECTORES EN CSS:
+   
+   elemento      → selecciona por etiqueta HTML (ej: p, h1, body)
+   .clase        → selecciona por atributo class (ej: .boton)
+   #id           → selecciona por atributo id (ej: #menu)  ← único en la página
+   *             → selecciona TODOS los elementos
+   padre hijo    → selecciona 'hijo' dentro de 'padre'
+   padre > hijo  → selecciona solo hijos DIRECTOS
+   elemento:hover → pseudo-clase: estado del elemento
+   
+   ============================================================ */
