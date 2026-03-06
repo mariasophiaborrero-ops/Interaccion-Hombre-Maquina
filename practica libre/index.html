@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<!-- DOCTYPE le dice al navegador que este documento usa HTML5, el estándar moderno -->
+<html lang="es">
+<!-- La etiqueta <html> es la raíz de toda la página. lang="es" indica que el idioma es español,
+     lo cual es importante para lectores de pantalla y motores de búsqueda -->
+
+<head>
+  <!-- El <head> contiene información sobre la página que NO se muestra visualmente al usuario,
+       pero que el navegador necesita para configurar la página correctamente -->
+
+  <meta charset="UTF-8" />
+  <!-- charset="UTF-8" define la codificación de caracteres. UTF-8 soporta tildes, ñ,
+       emojis y caracteres especiales de casi todos los idiomas -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Esta etiqueta es esencial para el diseño responsivo (adaptable a móviles).
+       width=device-width: el ancho de la página se ajusta al ancho del dispositivo.
+       initial-scale=1.0: el zoom inicial es 100%, sin zoom al cargar -->
+
+  <title>Pet 360 — Clinica Veterinaria y Grooming</title>
+  <!-- El <title> define el texto que aparece en la pestaña del navegador
+       y también es usado por Google como título en los resultados de búsqueda -->
+
+  <link rel="stylesheet" href="./css/styles.css"/>
+  <!-- <link> conecta este HTML con el archivo CSS externo.
+       rel="stylesheet" indica que es una hoja de estilos.
+       href="./css/styles.css" es la ruta relativa al archivo CSS desde esta página -->
+</head>
+
+<body>
+  <!-- El <body> contiene todo el contenido visible de la página web -->
+
+  <!-- ===================== ENCABEZADO (HEADER) ===================== -->
+  <header>
+    <!-- <header> es una etiqueta semántica que representa la cabecera de la página.
+         Semántica significa que le da significado estructural al contenido,
+         ayudando a buscadores y lectores de pantalla a entender la página -->
+
+    <h1> Pet 360</h1>
+    <!-- <h1> es el título principal de la página. Solo debe haber uno por página.
+         Es el encabezado más importante para SEO (posicionamiento en buscadores) -->
+
+    <h2>Clinica Veterinaria & Grooming</h2>
+    <!-- <h2> es un subtítulo de segundo nivel, menos importante que h1.
+         Aquí se usa para mostrar el tipo de negocio -->
+
+    <p>El cuidado completo que tu mascota merece, en un solo lugar.</p>
+    <!-- <p> es una etiqueta de párrafo, usada para texto descriptivo -->
+
+    <br>
+    <br>
+    <!-- <br> inserta un salto de línea (espacio en blanco vertical).
+         Se usan dos seguidos para añadir más espacio visual entre el slogan y el buscador -->
+
+    <div class="barra-busqueda">
+      <!-- <div> es un contenedor genérico sin significado semántico propio.
+           class="barra-busqueda" asigna una clase CSS que permite darle estilo
+           y layout específico a este contenedor desde el archivo styles.css -->
+
+      <input type="text" placeholder="Buscar servicio..." />
+      <!-- <input type="text"> crea un campo de texto donde el usuario puede escribir.
+           placeholder= muestra un texto gris de guía cuando el campo está vacío.
+           Esta barra de búsqueda es solo visual (no tiene funcionalidad real sin JavaScript) -->
+
+      <button>Buscar</button>
+      <!-- <button> crea un botón clickeable. Sin JavaScript, este botón no hace nada,
+           pero sirve como elemento visual de la interfaz -->
+    </div>
+  </header>
+  <!-- Fin del header -->
+
+  <!-- ===================== CONTENIDO PRINCIPAL (MAIN) ===================== -->
+  <main>
+    <!-- <main> es una etiqueta semántica que envuelve el contenido principal de la página.
+         Solo debe haber un <main> por página. Ayuda a los lectores de pantalla a
+         saltar directamente al contenido importante -->
+
+    <!-- ===== SECCIÓN: ¿QUIÉNES SOMOS? ===== -->
+    <section>
+      <!-- <section> es una etiqueta semántica que agrupa contenido relacionado temáticamente.
+           Es preferible a un <div> cuando el contenido tiene un tema propio -->
+
+      <h2>¿Quienes Somos?</h2>
+      <!-- Título de la sección, nivel 2 dentro del <main> -->
+
+      <p>
+        En <strong>Pet 360</strong> somos una familia de veterinarios y estilistas profesionales
+        comprometidos con la salud, bienestar y felicidad de tus mascotas. Atendemos perros y gatos
+        con amor y dedicacion. EMPEZAMOS ESTE 2026!.
+      </p>
+      <!-- <strong> pone el texto en negrita Y le da importancia semántica al contenido
+           (diferente de <b> que solo aplica negrita visual sin significado) -->
+
+      <p>
+        Contamos con instalaciones modernas, equipo medico de ultima tecnologia y un ambiente
+        tranquilo pensado para que tu mascota se sienta segura en cada visita.
+      </p>
+    </section>
+    <!-- Fin sección Quiénes Somos -->
+
+    <!-- ===== SECCIÓN: SERVICIOS ===== -->
+    <section id="servicios">
+      <!-- id="servicios" asigna un identificador único a esta sección.
+           Permite crear enlaces internos (#servicios) que lleven directamente aquí
+           y también permite seleccionar este elemento específico desde CSS o JavaScript -->
+
+      <h2>Nuestros Servicios</h2>
+
+      <div class="servicios-grid">
+        <!-- Contenedor con clase "servicios-grid". En el CSS esta clase usa flexbox
+             para mostrar las tarjetas de servicio en fila adaptable -->
+
+        <div class="card-servicio">
+          <!-- "card-servicio" es una tarjeta individual de servicio.
+               En el CSS tiene borde izquierdo verde y fondo suave para destacarse -->
+
+          <h3> Clinica Veterinaria</h3>
+          <!-- <h3> es el tercer nivel de encabezados, usado aquí para el nombre del servicio -->
+
+          <ul>
+            <!-- <ul> = unordered list (lista desordenada). Muestra ítems con viñetas (•).
+                 Se usa cuando el orden de los elementos no importa -->
+            <li>Consulta general y diagnostico</li>
+            <li>Vacunacion y desparasitacion</li>
+            <li>Cirugias y procedimientos medicos</li>
+            <li>Urgencias y cuidados intensivos</li>
+            <!-- Cada <li> (list item) es un elemento de la lista -->
+          </ul>
+
+          <h3> Grooming </h3>
+          <ul>
+            <li>Baño y secado profesional</li>
+            <li>Corte de pelo segun raza</li>
+            <li>Limpieza de oidos y corte de unas</li>
+            <li>Spa y tratamientos de pelaje</li>
+          </ul>
+        </div>
+        <!-- Fin card-servicio -->
+      </div>
+      <!-- Fin servicios-grid -->
+    </section>
+    <!-- Fin sección Servicios -->
+
+    <!-- ===== SECCIÓN: INSTALACIONES ===== -->
+    <section id="instalaciones">
+      <h2>Nuestras Instalaciones</h2>
+
+      <div class="instalaciones-grid">
+        <!-- Contenedor que organiza las imágenes en columna centrada (definido en CSS) -->
+
+        <div class="instalacion-item">
+          <!-- Contenedor para cada imagen individual con su descripción -->
+
+          <img
+            src="https://www.covertalavera.com/wp-content/uploads/2023/01/Clinica-veterinaria-alfa-3.jpg"
+            alt="Veterinario revisando a un perro golden retriever en la clinica Pet 360"
+            width="500"
+          />
+          <!-- <img> inserta una imagen en la página.
+               src= indica la ruta o URL de la imagen (aquí viene de internet).
+               alt= es el texto alternativo, MUY IMPORTANTE: lo leen los lectores de pantalla
+               para personas con discapacidad visual, y también lo usa Google para indexar imágenes.
+               width="500" sugiere el ancho en píxeles (el CSS puede sobreescribir esto) -->
+
+          <p><em>Consultas veterinarias con atencion personalizada.</em></p>
+          <!-- <em> = emphasis, muestra el texto en cursiva y le da énfasis semántico,
+               indicando que este texto tiene importancia especial (como un pie de foto) -->
+        </div>
+
+        <div>
+          <!-- Contenedor simple sin clase para la segunda imagen -->
+          <img
+            src="imagenes/WhatsApp Image 2026-03-05 at 8.29.51 PM.jpeg"
+            alt="Perro siendo bañado y arreglado en el servicio de grooming de Pet 360"
+            width="500"
+          />
+          <!-- Esta imagen usa una ruta local relativa (desde el mismo servidor/carpeta).
+               El archivo debe existir en la carpeta "imagenes/" junto al HTML -->
+
+          <p><em>Servicio de grooming profesional para que tu mascota luzca esplendida.</em></p>
+        </div>
+      </div>
+      <!-- Fin instalaciones-grid -->
+    </section>
+    <!-- Fin sección Instalaciones -->
+
+    <!-- ===== SECCIÓN: TARIFAS ===== -->
+    <section id="tarifas">
+      <h2>Tarifas de Servicios</h2>
+
+      <div class="tabla-wrapper">
+        <!-- Contenedor con overflow-x: auto en CSS, lo que permite scroll horizontal
+             en pantallas pequeñas si la tabla es más ancha que la pantalla -->
+
+        <table>
+          <!-- <table> crea una tabla HTML para mostrar datos en filas y columnas -->
+
+          <thead>
+            <!-- <thead> agrupa las filas del encabezado de la tabla.
+                 Semánticamente indica que estas filas son los títulos de las columnas -->
+            <tr>
+              <!-- <tr> = table row (fila de la tabla) -->
+              <th>Servicio</th>
+              <th>Mascota</th>
+              <th>Duracion</th>
+              <th>Precio (COP)</th>
+              <!-- <th> = table header (celda de encabezado). Se muestra en negrita por defecto
+                   y tiene significado semántico de título de columna o fila -->
+            </tr>
+          </thead>
+
+          <tbody>
+            <!-- <tbody> agrupa todas las filas con datos reales de la tabla.
+                 Esto ayuda al navegador a renderizar y a la accesibilidad -->
+
+            <tr>
+              <td>Consulta general</td>
+              <td>Perro / Gato</td>
+              <td>30 min</td>
+              <td>$45.000</td>
+              <!-- <td> = table data (celda de datos normal, sin negrita) -->
+            </tr>
+            <tr>
+              <td>Vacunacion</td>
+              <td>Perro / Gato</td>
+              <td>15 min</td>
+              <td>$35.000</td>
+            </tr>
+            <tr>
+              <td>Baño y secado (pequeño)</td>
+              <td>Perro</td>
+              <td>1 hora</td>
+              <td>$40.000</td>
+            </tr>
+            <tr>
+              <td>Baño y secado (grande)</td>
+              <td>Perro</td>
+              <td>2 horas</td>
+              <td>$70.000</td>
+            </tr>
+            <tr>
+              <td>Corte de pelo + baño</td>
+              <td>Perro / Gato</td>
+              <td>2 horas</td>
+              <td>$85.000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- Fin tabla-wrapper -->
+    </section>
+    <!-- Fin sección Tarifas -->
+
+    <!-- ===== SECCIÓN: FORMULARIO DE CITA ===== -->
+    <section>
+      <h2> Agendar una Cita</h2>
+      <p>Completa el formulario y nos comunicaremos contigo para confirmar tu cita.</p>
+
+      <div>
+        <form action="#" method="post" class="form-grid">
+          <!-- <form> crea un formulario HTML para recopilar datos del usuario.
+               action="#" indica a dónde se envían los datos al hacer submit.
+               El "#" significa que por ahora no hay servidor que los procese (queda en la misma página).
+               method="post" define cómo se envían los datos: POST los envía de forma segura en el
+               cuerpo de la petición HTTP (no en la URL, como haría GET).
+               class="form-grid" aplica el layout de cuadrícula de dos columnas del CSS -->
+
+          <!-- ----- Campo: Nombre del dueño ----- -->
+          <div class="form-grupo">
+            <!-- form-grupo agrupa el label y el input juntos visualmente en el CSS -->
+
+            <label for="nombre">Nombre del dueño:</label>
+            <!-- <label> es la etiqueta descriptiva de un campo del formulario.
+                 for="nombre" conecta este label con el input que tenga id="nombre".
+                 Al hacer clic en el label, el cursor se posiciona en el input correspondiente.
+                 También mejora la accesibilidad para lectores de pantalla -->
+
+            <input type="text" id="nombre" name="nombre" placeholder="Ej: Carlos Ramirez" required />
+            <!-- type="text" acepta cualquier texto escrito.
+                 id="nombre" es el identificador único del elemento (conectado al label).
+                 name="nombre" es el nombre del campo al enviar el formulario al servidor.
+                 placeholder= muestra texto de ayuda gris cuando está vacío.
+                 required hace que el campo sea obligatorio: el formulario no se puede
+                 enviar si este campo está vacío -->
+          </div>
+
+          <br />
+          <!-- Espacio visual entre campos (no ideal, pero funcional) -->
+
+          <!-- ----- Campo: Correo electrónico ----- -->
+          <div>
+            <label for="correo">Correo electronico:</label><br />
+            <input type="email" id="correo" name="correo" placeholder="Ej: carlos@email.com" required />
+            <!-- type="email" valida automáticamente que el texto tenga formato de email (contiene @ y punto).
+                 El navegador muestra un error si el formato es inválido al intentar enviar -->
+          </div>
+
+          <br />
+
+          <!-- ----- Campo: Teléfono ----- -->
+          <div>
+            <label for="telefono">Telefono de contacto:</label><br />
+            <input type="text" id="telefono" name="telefono" placeholder="Ej: 300 123 4567" required />
+            <!-- Se usa type="text" y no type="tel" para permitir formatos flexibles
+                 de número (con espacios, guiones, etc.) -->
+          </div>
+
+          <br />
+
+          <!-- ----- Campo: Nombre de la mascota ----- -->
+          <div>
+            <label for="mascota">Nombre de la mascota:</label><br />
+            <input type="text" id="mascota" name="mascota" placeholder="Ej: Kiara" required />
+          </div>
+
+          <br />
+
+          <!-- ----- Campo: Tipo de mascota (select/dropdown) ----- -->
+          <div>
+            <label for="tipo">Tipo de mascota:</label><br />
+            <select id="tipo" name="tipo" required>
+              <!-- <select> crea un menú desplegable (dropdown).
+                   El usuario solo puede elegir UNA opción a la vez -->
+              <option value="">- Selecciona -</option>
+              <!-- La primera opción tiene value="" y actúa como instrucción.
+                   Con required, esta opción vacía obliga al usuario a elegir una real -->
+              <option value="perro">Perro</option>
+              <option value="gato">Gato</option>
+              <option value="otro">Otro</option>
+              <!-- value= es el dato que se envía al servidor.
+                   El texto entre las etiquetas es lo que ve el usuario -->
+            </select>
+          </div>
+
+          <br />
+
+          <!-- ----- Campo: Servicio solicitado ----- -->
+          <div>
+            <label for="servicio">Servicio solicitado:</label><br />
+            <select id="servicio" name="servicio" required>
+              <option value="">- Selecciona un servicio-</option>
+              <option value="consulta">Consulta veterinaria</option>
+              <option value="vacuna">Vacunacion</option>
+              <option value="baño">Baño y secado</option>
+              <option value="corte">Corte + baño (grooming)</option>
+              <option value="urgencia">Urgencia</option>
+            </select>
+          </div>
+
+          <br />
+
+          <!-- ----- Campo: Fecha ----- -->
+          <div>
+            <label for="fecha">Fecha preferida:</label><br />
+            <input type="date" id="fecha" name="fecha" required />
+            <!-- type="date" muestra un selector de calendario en los navegadores modernos.
+                 El formato guardado es YYYY-MM-DD (año-mes-día) -->
+          </div>
+
+          <br />
+
+          <!-- ----- Campo: Hora (select) ----- -->
+          <div>
+            <label for="hora">Hora preferida:</label><br />
+            <select id="hora" name="hora">
+              <!-- Sin required, este campo es opcional -->
+              <option value="">-- Selecciona una hora --</option>
+              <option value="08:00">8:00 AM</option>
+              <option value="09:00">9:00 AM</option>
+              <option value="10:00">10:00 AM</option>
+              <option value="11:00">11:00 AM</option>
+              <option value="14:00">2:00 PM</option>
+              <option value="15:00">3:00 PM</option>
+              <option value="16:00">4:00 PM</option>
+              <!-- value usa formato 24h (para el servidor) y el texto muestra formato 12h (para el usuario) -->
+            </select>
+          </div>
+
+          <br />
+
+          <!-- ----- Campo: Notas adicionales (textarea) ----- -->
+          <div>
+            <label for="notas">Notas adicionales (sintomas, indicaciones, etc.):</label><br />
+            <textarea id="notas" name="notas" rows="3" cols="45" placeholder="Ej: Mi perro tiene tos desde hace 3 dias..."></textarea>
+            <!-- <textarea> es un campo de texto de múltiples líneas (a diferencia de <input> que es de una línea).
+                 rows="3" define la altura inicial visible (3 líneas de texto).
+                 cols="45" define el ancho inicial (en caracteres), aunque el CSS puede sobreescribirlo.
+                 No tiene required, por lo que es opcional -->
+          </div>
+
+          <br />
+
+          <!-- ----- Campo: Checkbox de términos ----- -->
+          <div>
+            <input type="checkbox" id="terminos" name="terminos" required />
+            <!-- type="checkbox" crea una casilla de verificación (marcar/desmarcar).
+                 Con required, el formulario no se puede enviar si no está marcada -->
+            <label for="terminos">Acepto los terminos y condiciones de Pet 360.</label>
+          </div>
+
+          <br />
+
+          <!-- ----- Botones de acción del formulario ----- -->
+          <div>
+            <input type="submit" value=" Agendar Cita" />
+            <!-- type="submit" crea un botón que envía el formulario al servidor.
+                 value= es el texto visible en el botón -->
+
+            <input type="reset" value="Limpiar" />
+            <!-- type="reset" limpia todos los campos del formulario,
+                 restaurándolos a sus valores iniciales (vacíos o los predefinidos) -->
+          </div>
+
+        </form>
+      </div>
+    </section>
+    <!-- Fin sección Formulario -->
+
+    <!-- ===== SECCIÓN: HORARIOS ===== -->
+    <section>
+      <h2>Horarios de Atencion</h2>
+
+      <div class="horarios-grid">
+        <!-- Contenedor con layout flex para mostrar las tarjetas de horario en fila -->
+
+        <div class="horario-card">
+          <!-- Tarjeta visual con fondo verde suave y borde izquierdo, definida en CSS -->
+
+          <h3>Clinica Veterinaria</h3>
+          <ol>
+            <!-- <ol> = ordered list (lista ordenada). Muestra ítems numerados (1, 2, 3...).
+                 Se usa cuando el orden importa, como días de la semana en secuencia -->
+            <li>Lunes a Viernes: 8:00 AM - 7:00 PM</li>
+            <li>Sabados: 8:00 AM - 5:00 PM</li>
+            <li>Domingos y festivos: 9:00 AM - 2:00 PM (urgencias)</li>
+          </ol>
+
+          <h3>Grooming</h3>
+          <ol>
+            <li>Lunes a Viernes: 9:00 AM - 6:00 PM</li>
+            <li>Sabados: 9:00 AM - 4:00 PM</li>
+            <li>Domingos: Cerrado</li>
+          </ol>
+
+          <h3>Mas informacion</h3>
+          <p>Visita nuestras redes y sitios de referencia:</p>
+          <ul>
+            <li>
+              <a href="https://www.instagram.com/pet_360_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
+                Siguenos en Instagram !
+              </a>
+              <!-- <a> = anchor (ancla), crea un enlace/hipervínculo.
+                   href= es la URL de destino.
+                   target="_blank" abre el enlace en una nueva pestaña del navegador,
+                   en lugar de reemplazar la página actual -->
+            </li>
+            <li>
+              <a href="https://maps.app.goo.gl/e4SDGUR4FzZ47ews8" target="_blank">
+                Ver ubicacion en Google Maps
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- Fin horario-card -->
+      </div>
+      <!-- Fin horarios-grid -->
+    </section>
+    <!-- Fin sección Horarios -->
+
+  </main>
+  <!-- Fin del main -->
+
+  <!-- ===================== PIE DE PÁGINA (FOOTER) ===================== -->
+  <footer>
+    <!-- <footer> es una etiqueta semántica para el pie de página.
+         Contiene información de contacto, derechos de autor, enlaces secundarios, etc. -->
+
+    <h2>Pet 360 - Contacto</h2>
+    <!-- Título del footer con la información de contacto -->
+
+    <div>
+      <!-- Contenedor simple para agrupar los datos de contacto -->
+      <p> Direccion: Auto. Norte #162 - 38, Bogota, Colombia</p>
+      <p> Telefono: 320 844 6632</p>
+      <p> Email: pet_360@gmail.com</p>
+    </div>
+
+  </footer>
+  <!-- Fin del footer -->
+
+</body>
+<!-- Fin del cuerpo de la página -->
+
+</html>
+<!-- Fin del documento HTML -->

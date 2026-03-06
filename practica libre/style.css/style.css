@@ -1,0 +1,760 @@
+/* ============================================================
+   RESET GLOBAL
+   Este bloque elimina los márgenes y rellenos que los navegadores
+   aplican por defecto a los elementos HTML. Sin esto, cada navegador
+   (Chrome, Firefox, Safari) mostraría la página de forma ligeramente
+   diferente. Con el reset, partimos desde cero de forma consistente.
+   ============================================================ */
+* {
+  /* El selector * aplica estos estilos a TODOS los elementos de la página */
+
+  margin: 0;
+  /* Elimina el espacio exterior (fuera del borde) de todos los elementos */
+
+  padding: 0;
+  /* Elimina el relleno interior (dentro del borde) de todos los elementos */
+
+  box-sizing: border-box;
+  /* Cambia el modelo de caja: con este valor, el width y height incluyen
+     el padding y el borde. Sin esto, añadir padding aumentaría el tamaño
+     total del elemento, lo que es confuso al diseñar layouts */
+}
+
+
+/* ============================================================
+   ESTILOS BASE DEL CUERPO (BODY)
+   Define la tipografía, tamaño y colores base de toda la página.
+   Los elementos hijos heredan estas propiedades si no las redefinen.
+   ============================================================ */
+body {
+  font-family: Arial, sans-serif;
+  /* Define la fuente principal de todo el texto.
+     Arial es la primera opción; si no está disponible,
+     el navegador usará cualquier fuente sans-serif del sistema */
+
+  font-size: 16px;
+  /* Tamaño base del texto. Muchas medidas relativas (como rem y em)
+     se calculan a partir de este valor. 16px es el estándar web */
+
+  color: #333;
+  /* Color del texto. #333 es un gris oscuro (casi negro).
+     Es más suave para la vista que el negro puro (#000) */
+
+  background-color: #f9f9f9;
+  /* Color de fondo de toda la página. Un blanco ligeramente grisáceo
+     es más agradable visualmente que el blanco puro */
+}
+
+
+/* ============================================================
+   IMÁGENES RESPONSIVE
+   Hace que todas las imágenes sean responsivas por defecto.
+   ============================================================ */
+img {
+  max-width: 100%;
+  /* La imagen nunca será más ancha que su contenedor padre.
+     Esto evita que las imágenes se desborden en pantallas pequeñas */
+
+  height: auto;
+  /* La altura se ajusta proporcionalmente al ancho.
+     Mantiene la relación de aspecto original de la imagen */
+
+  display: block;
+  /* Las imágenes son inline por defecto, lo que deja un pequeño
+     espacio vacío debajo. display: block elimina ese espacio.
+     También permite usar margin: auto para centrarlas */
+}
+
+
+/* ============================================================
+   HEADER (ENCABEZADO)
+   Estilo del banner principal en la parte superior de la página.
+   ============================================================ */
+header {
+  background-color: #2d6a4f;
+  /* Verde oscuro como fondo. Representa naturaleza, salud y confianza.
+     Los colores hexadecimales tienen formato #RRGGBB (rojo, verde, azul) */
+
+  color: white;
+  /* Color del texto dentro del header. Hereda a todos los hijos
+     que no definan su propio color */
+
+  padding: 30px 40px;
+  /* Relleno interior: 30px arriba/abajo, 40px izquierda/derecha.
+     Cuando padding tiene 2 valores: primero vertical, luego horizontal */
+
+  text-align: center;
+  /* Centra todo el texto y elementos inline del header */
+}
+
+header h1 {
+  /* Selecciona solo los <h1> que estén DENTRO del <header> */
+  font-size: 2.5rem;
+  /* rem = "root em". Es relativo al font-size del <html> o <body> (16px).
+     2.5rem = 2.5 × 16px = 40px. Usar rem es mejor práctica que px fijo
+     porque respeta las preferencias de tamaño del usuario en el navegador */
+
+  margin-bottom: 6px;
+  /* Espacio exterior debajo del h1, separándolo del h2 que sigue */
+}
+
+header h2 {
+  font-size: 1rem;
+  /* 1rem = 16px, el mismo tamaño que el texto base del body */
+
+  font-weight: normal;
+  /* Los encabezados son negrita por defecto. "normal" los vuelve a peso regular */
+
+  margin-bottom: 16px;
+  opacity: 0.85;
+  /* Opacidad del 85%: hace el texto ligeramente transparente para que
+     se vea más sutil que el h1 principal. 1 = opaco, 0 = transparente */
+}
+
+header p {
+  font-size: 1.05rem;
+  /* Ligeramente más grande que el texto base para que sea fácil de leer */
+
+  opacity: 0.9;
+  /* Texto casi completamente opaco pero con un toque de transparencia */
+
+  margin-top: 10px;
+  /* Espacio encima del párrafo para separarlo del h2 */
+}
+
+
+/* ============================================================
+   BARRA DE BÚSQUEDA
+   Layout del campo de búsqueda con su botón.
+   ============================================================ */
+.barra-busqueda {
+  /* El punto (.) antes del nombre indica que es un SELECTOR DE CLASE.
+     Aplica a cualquier elemento que tenga class="barra-busqueda" en el HTML */
+
+  display: flex;
+  /* Activa Flexbox: un sistema de layout que organiza hijos en fila o columna
+     con mucho control sobre alineación, tamaño y distribución del espacio */
+
+  justify-content: center;
+  /* En el eje principal (horizontal por defecto), centra los elementos flex hijos */
+
+  margin: 16px auto 0;
+  /* margin con 3 valores: 16px arriba, auto izq/der (centra el div), 0 abajo.
+     "auto" en los márgenes horizontales centra un elemento de bloque */
+
+  max-width: 400px;
+  /* Ancho máximo del contenedor. No crecerá más de 400px aunque la pantalla sea más grande */
+}
+
+.barra-busqueda input {
+  /* Selecciona el <input> que esté dentro de .barra-busqueda */
+
+  padding: 10px 16px;
+  /* Relleno interior: 10px vertical, 16px horizontal */
+
+  font-size: 0.95rem;
+  border: none;
+  /* Elimina el borde por defecto de los inputs */
+
+  border-radius: 6px 0 0 6px;
+  /* Redondea solo las esquinas izquierdas (arriba-izq, arriba-der, abajo-der, abajo-izq).
+     Esto crea el efecto de que el input y el botón forman una unidad visual */
+
+  width: 100%;
+  /* Ocupa todo el ancho disponible dentro de su contenedor flex */
+
+  outline: none;
+  /* Elimina el contorno azul/negro que aparece al hacer clic en el input.
+     Útil para diseños personalizados, pero debes asegurarte de que el foco
+     sea visible de otra forma para accesibilidad */
+}
+
+.barra-busqueda button {
+  padding: 10px 20px;
+  background-color: #f4a261;
+  /* Naranja cálido que contrasta con el verde del header */
+
+  color: white;
+  border: none;
+  border-radius: 0 6px 6px 0;
+  /* Redondea solo las esquinas derechas, complementando el input de la izquierda */
+
+  cursor: pointer;
+  /* Cambia el cursor del mouse a "manita" al pasar sobre el botón,
+     indicando al usuario que es clickeable */
+
+  font-size: 0.95rem;
+}
+
+.barra-busqueda button:hover {
+  /* :hover es una pseudo-clase que aplica estilos cuando el mouse
+     está encima del elemento. Sin JavaScript, es la principal forma
+     de dar feedback visual de interacción */
+
+  background-color: #e07e3a;
+  /* Naranja más oscuro al hacer hover, indica que el botón reacciona */
+}
+
+
+/* ============================================================
+   MAIN (CONTENIDO PRINCIPAL)
+   Limita el ancho máximo y centra el contenido en pantallas grandes.
+   ============================================================ */
+main {
+  max-width: 960px;
+  /* En pantallas muy anchas, el contenido no se estira más de 960px.
+     Mejora la legibilidad (líneas muy largas son difíciles de leer) */
+
+  margin: 0 auto;
+  /* Centra el <main> horizontalmente. top/bottom: 0, left/right: auto */
+
+  padding: 20px 24px;
+  /* Espacio entre el contenido y los bordes del main */
+}
+
+
+/* ============================================================
+   SECCIONES
+   Estilo base compartido por todas las etiquetas <section>.
+   ============================================================ */
+section {
+  background-color: white;
+  /* Fondo blanco para las secciones, contrasta con el gris del body */
+
+  border-radius: 8px;
+  /* Esquinas redondeadas. Da un aspecto moderno y menos rígido */
+
+  padding: 32px;
+  /* Espacio interior generoso para que el contenido no esté pegado a los bordes */
+
+  margin-bottom: 28px;
+  /* Espacio debajo de cada sección para separarlas entre sí */
+
+  border: 1px solid #ddd;
+  /* Borde exterior muy sutil (gris claro) que define el límite de la tarjeta.
+     1px = grosor, solid = línea continua, #ddd = gris muy claro */
+}
+
+section h2 {
+  font-size: 1.6rem;
+  color: #2d6a4f;
+  /* Los títulos de sección heredan el verde corporativo del header */
+
+  margin-bottom: 16px;
+
+  border-bottom: 3px solid #f4a261;
+  /* Línea naranja decorativa debajo del título. Crea un efecto de subrayado estilizado.
+     3px = grosor, solid = continua, #f4a261 = naranja del botón de búsqueda */
+
+  padding-bottom: 8px;
+  /* Espacio entre el texto y la línea naranja */
+}
+
+section h3 {
+  font-size: 1.1rem;
+  color: #1a3a2a;
+  /* Verde muy oscuro (casi negro con tinte verde) para subtítulos dentro de secciones */
+
+  margin: 20px 0 10px;
+  /* margin con 3 valores: 20px arriba, 0 izquierda/derecha, 10px abajo */
+}
+
+section p {
+  color: #555;
+  /* Gris medio para el texto de los párrafos, más suave que el #333 del body */
+
+  line-height: 1.7;
+  /* Altura de línea: espacio entre líneas de texto.
+     1.7 significa 1.7 veces el tamaño de fuente. Mejora mucho la legibilidad */
+
+  margin-bottom: 10px;
+}
+
+
+/* ============================================================
+   LISTAS (ul y ol)
+   Estilo general para listas desordenadas y ordenadas.
+   ============================================================ */
+ul, ol {
+  /* El selector de coma (,) aplica el mismo estilo a múltiples selectores */
+
+  padding-left: 22px;
+  /* Indentación a la izquierda para que las viñetas o números sean visibles */
+
+  color: #555;
+  line-height: 1.9;
+  /* Mayor separación entre ítems de lista que en párrafos */
+}
+
+
+/* ============================================================
+   GRID DE SERVICIOS
+   Layout para mostrar las tarjetas de servicio en fila flexible.
+   ============================================================ */
+.servicios-grid {
+  display: flex;
+  /* Flexbox para organizar las tarjetas hijo en fila */
+
+  gap: 24px;
+  /* Espacio entre los hijos flex (entre tarjetas). gap es más limpio
+     que usar margin en los hijos individualmente */
+
+  flex-wrap: wrap;
+  /* Permite que las tarjetas pasen a la siguiente línea si no caben.
+     Sin esto, se comprimen o desbordan en pantallas pequeñas */
+}
+
+.card-servicio {
+  flex: 1 1 250px;
+  /* flex es shorthand de flex-grow flex-shrink flex-basis.
+     flex-grow: 1 = puede crecer para ocupar espacio disponible.
+     flex-shrink: 1 = puede encogerse si es necesario.
+     flex-basis: 250px = tamaño base (mínimo ideal) antes de crecer/encoger.
+     Resultado: tarjetas que se adaptan pero nunca bajan de ~250px de ancho */
+
+  background-color: #f0f8f3;
+  /* Verde muy claro para el fondo de la tarjeta */
+
+  border-left: 4px solid #52b788;
+  /* Borde izquierdo verde más brillante como acento decorativo */
+
+  border-radius: 6px;
+  padding: 20px;
+}
+
+
+/* ============================================================
+   GRID DE INSTALACIONES
+   Layout para centrar las imágenes de las instalaciones en columna.
+   ============================================================ */
+.instalaciones-grid {
+  display: flex;
+  flex-direction: column;
+  /* flex-direction: column organiza los hijos en columna (apilados verticalmente)
+     en vez de la fila por defecto */
+
+  align-items: center;
+  /* En el eje transversal (horizontal, cuando la dirección es column),
+     centra los hijos horizontalmente */
+
+  gap: 24px;
+}
+
+.instalacion-item {
+  width: 100%;
+  /* Ocupa todo el ancho del contenedor padre */
+
+  text-align: center;
+  max-width: 600px;
+  /* Limita el ancho de cada imagen para que no sea demasiado grande */
+}
+
+.instalacion-item img {
+  width: 100%;
+  /* La imagen se estira al ancho completo del contenedor .instalacion-item */
+
+  object-fit: cover;
+  /* Si la imagen no tiene las proporciones exactas del contenedor,
+     la recorta para cubrirlo sin distorsionar. Como un "crop" automático */
+
+  display: block;
+  margin-bottom: 8px;
+  /* Espacio entre la imagen y el texto descriptivo */
+}
+
+.instalacion-item p {
+  font-size: 1rem;
+  color: #260808;
+  /* Color muy oscuro (casi negro con tinte rojizo) para los pies de foto */
+
+  font-style: Arial, sans-serif;
+  /* NOTA: font-style solo acepta valores como italic, normal, oblique.
+     Aquí hay un error en el CSS original: se usó font-style cuando se quería
+     definir font-family. El navegador ignora este valor incorrecto */
+}
+
+
+/* ============================================================
+   TABLA (TARIFAS)
+   Estilos para la tabla de precios de servicios.
+   ============================================================ */
+.tabla-wrapper {
+  overflow-x: auto;
+  /* Si la tabla es más ancha que la pantalla (en móviles),
+     aparece una barra de scroll horizontal en vez de desbordarse */
+}
+
+table {
+  width: 100%;
+  /* La tabla ocupa todo el ancho del contenedor */
+
+  border-collapse: collapse;
+  /* Por defecto, las celdas tienen doble borde entre ellas.
+     collapse los fusiona en uno solo, lo que se ve más limpio */
+
+  margin-top: 10px;
+  min-width: 480px;
+  /* Ancho mínimo: si la pantalla es más pequeña, se activa el scroll
+     del .tabla-wrapper en lugar de comprimir las celdas ilegiblemente */
+}
+
+table th {
+  background-color: #2d6a4f;
+  /* Verde oscuro para el encabezado de la tabla */
+
+  color: white;
+  padding: 12px 16px;
+  text-align: left;
+  /* Los th son centrados por defecto en algunos navegadores.
+     text-align: left los alinea a la izquierda como el resto del contenido */
+}
+
+table td {
+  padding: 11px 16px;
+  /* Espacio interno de cada celda de datos para que el texto no esté apretado */
+
+  border-bottom: 1px solid #eee;
+  /* Línea divisoria muy sutil entre filas */
+
+  color: #555;
+}
+
+table tr:hover {
+  /* :hover en una fila (<tr>) cambia el fondo al pasar el mouse sobre ella */
+  background-color: #f0f8f3;
+  /* Verde muy claro como indicador visual de la fila sobre la que está el cursor */
+}
+
+
+/* ============================================================
+   FORMULARIO
+   Layouts y estilos para el formulario de agendamiento de citas.
+   ============================================================ */
+.form-grid {
+  display: grid;
+  /* CSS Grid: sistema de layout bidimensional (filas Y columnas).
+     Más potente que Flexbox para layouts de formularios con múltiples columnas */
+
+  grid-template-columns: 1fr 1fr;
+  /* Crea 2 columnas de igual tamaño.
+     "fr" = fracción del espacio disponible. 1fr + 1fr = 50% + 50% */
+
+  gap: 18px;
+  /* Espacio entre celdas del grid (tanto horizontal como vertical) */
+
+  margin-top: 16px;
+}
+
+.form-grupo {
+  display: flex;
+  /* Flexbox para organizar el label y el input en columna */
+
+  flex-direction: column;
+  /* Apila label encima, input debajo */
+
+  gap: 6px;
+  /* Pequeño espacio entre el label y el input */
+}
+
+.form-grupo.ancho-completo {
+  /* Cuando un .form-grupo tiene TAMBIÉN la clase .ancho-completo,
+     aplica ambos bloques de estilos (herencia de clases) */
+
+  grid-column: 1 / -1;
+  /* Hace que este elemento ocupe desde la columna 1 hasta la última (-1).
+     Útil para campos que deben ocupar el ancho completo del formulario */
+}
+
+.form-terminos {
+  grid-column: 1 / -1;
+  /* El checkbox de términos también ocupa el ancho completo */
+
+  display: flex;
+  align-items: center;
+  /* Alinea el checkbox y su label verticalmente al centro */
+
+  gap: 8px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.form-botones {
+  grid-column: 1 / -1;
+  /* Los botones también ocupan todo el ancho */
+
+  display: flex;
+  gap: 12px;
+  /* Espacio horizontal entre los botones "Agendar" y "Limpiar" */
+}
+
+label {
+  font-size: 0.9rem;
+  font-weight: bold;
+  /* Los labels van en negrita para diferenciarse del texto de los inputs */
+
+  color: #333;
+}
+
+/* Estilos compartidos para los campos de texto del formulario */
+input[type="text"],
+input[type="email"],
+input[type="date"],
+select,
+textarea {
+  /* [type="text"] es un selector de atributo: selecciona inputs cuyo
+     atributo type sea exactamente "text". Permite aplicar estilos específicos
+     por tipo sin necesidad de añadir clases */
+
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  /* Borde gris claro estándar para campos de formulario */
+
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-family: Arial, sans-serif;
+  /* Los inputs no heredan font-family del body en algunos navegadores.
+     Se especifica explícitamente para consistencia */
+
+  width: 100%;
+  /* El campo ocupa todo el ancho de su contenedor padre */
+
+  outline: none;
+  /* Elimina el contorno azul predeterminado al enfocar el campo */
+}
+
+input:focus, select:focus, textarea:focus {
+  /* :focus se activa cuando el usuario hace clic en el campo o navega con Tab */
+  border-color: #2d6a4f;
+  /* El borde cambia al verde corporativo al enfocar el campo,
+     indicando visualmente qué campo está activo */
+}
+
+textarea {
+  resize: vertical;
+  /* Permite que el usuario redimensione el textarea solo verticalmente.
+     Sin esto, podrían estirarlo horizontal y romper el layout.
+     Opciones: none (sin redimensión), both, horizontal, vertical */
+
+  min-height: 80px;
+  /* Altura mínima del textarea aunque el usuario lo encoja */
+}
+
+/* Botón principal de envío */
+input[type="submit"] {
+  background-color: #2d6a4f;
+  /* Verde corporativo para el botón principal */
+
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  /* Cambia el cursor a manita para indicar que es clickeable */
+}
+
+input[type="submit"]:hover {
+  background-color: #1a3a2a;
+  /* Verde más oscuro al hacer hover, efecto de "presionado" */
+}
+
+/* Botón secundario de reset/limpiar */
+input[type="reset"] {
+  background-color: white;
+  color: #2d6a4f;
+  /* Estilo "outline" o "ghost": fondo blanco con texto y borde del color principal.
+     Visualmente secundario respecto al botón submit */
+
+  border: 2px solid #2d6a4f;
+  padding: 10px 24px;
+  /* Padding ligeramente menor que submit porque tiene borde de 2px
+     (el border añade tamaño sin padding) */
+
+  border-radius: 6px;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+input[type="reset"]:hover {
+  background-color: #f0f8f3;
+  /* Fondo verde muy claro al hacer hover */
+}
+
+
+/* ============================================================
+   HORARIOS
+   Layout para las tarjetas de horarios de atención.
+   ============================================================ */
+.horarios-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  /* Permite que las tarjetas pasen a nueva línea en pantallas pequeñas */
+}
+
+.horario-card {
+  flex: 1 1 200px;
+  /* Tarjetas flex con base mínima de 200px, similar a .card-servicio */
+
+  background-color: #f0f8f3;
+  border-radius: 6px;
+  padding: 20px;
+  border-left: 4px solid #52b788;
+  /* Mismo estilo visual que las tarjetas de servicio para consistencia de diseño */
+}
+
+.horario-card h3 {
+  margin-top: 0;
+  /* Cancela el margin-top definido en "section h3" para el primer h3 de la tarjeta */
+
+  margin-bottom: 10px;
+  color: #2d6a4f;
+}
+
+
+/* ============================================================
+   FOOTER (PIE DE PÁGINA)
+   Estilo del área de contacto al final de la página.
+   ============================================================ */
+footer {
+  background-color: #1a3a2a;
+  /* Verde muy oscuro, más profundo que el header, para cerrar visualmente la página */
+
+  color: white;
+  text-align: center;
+  padding: 30px 24px;
+}
+
+footer h2 {
+  font-size: 1.4rem;
+  margin-bottom: 14px;
+}
+
+footer p {
+  font-size: 0.92rem;
+  /* Texto ligeramente más pequeño que el cuerpo, adecuado para información secundaria */
+
+  opacity: 0.8;
+  /* Texto semi-transparente sobre el fondo oscuro, crea jerarquía visual */
+
+  margin-bottom: 6px;
+}
+
+
+/* ============================================================
+   MEDIA QUERIES (DISEÑO RESPONSIVO)
+   
+   Las media queries permiten aplicar estilos distintos según el
+   tamaño de la pantalla. Son el núcleo del diseño responsivo (responsive design).
+   Formato: @media (condición) { reglas CSS que aplican solo si se cumple la condición }
+   ============================================================ */
+
+/* ===== TABLET: pantallas de hasta 768px de ancho ===== */
+@media (max-width: 768px) {
+  /* max-width: 768px significa "aplica estos estilos cuando la pantalla
+     tenga 768px de ancho O MENOS" (tablets en vertical, móviles grandes) */
+
+  header {
+    padding: 24px 20px;
+    /* Reduce el padding del header en tablets para aprovechar mejor el espacio */
+  }
+
+  header h1 {
+    font-size: 2rem;
+    /* Título más pequeño en tablets (de 2.5rem a 2rem) */
+  }
+
+  main {
+    padding: 16px;
+    /* Menos padding lateral en pantallas más estrechas */
+  }
+
+  section {
+    padding: 24px 16px;
+    /* Secciones con menos padding en tablets */
+  }
+}
+
+/* ===== MÓVIL: pantallas de hasta 480px de ancho ===== */
+@media (max-width: 480px) {
+  /* Aplica solo en móviles pequeños y medianos */
+
+  header {
+    padding: 20px 16px;
+    /* Padding mínimo en móviles */
+  }
+
+  header h1 {
+    font-size: 1.6rem;
+    /* Título aún más pequeño en móviles */
+  }
+
+  .barra-busqueda {
+    max-width: 100%;
+    /* La barra de búsqueda ocupa el ancho completo en móviles */
+  }
+
+  main {
+    padding: 12px;
+  }
+
+  section {
+    padding: 20px 14px;
+  }
+
+  .servicios-grid,
+  .horarios-grid {
+    flex-direction: column;
+    /* En móviles, los grids de servicios y horarios pasan de fila a columna.
+       Las tarjetas se apilan verticalmente en vez de estar lado a lado */
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+    /* El formulario pasa de 2 columnas a 1 sola columna en móviles.
+       Cada campo ocupa el ancho completo, más fácil de usar en pantalla táctil */
+  }
+
+  .form-botones {
+    flex-direction: column;
+    /* Los botones se apilan verticalmente en móviles */
+  }
+
+  input[type="submit"],
+  input[type="reset"] {
+    width: 100%;
+    /* Botones de ancho completo en móviles, más fáciles de tocar */
+
+    padding: 14px;
+    /* Mayor padding para facilitar el toque táctil (botones más grandes) */
+  }
+}
+
+/* ===== DESKTOP GRANDE: pantallas de 1200px o más ===== */
+@media (min-width: 1200px) {
+  /* min-width: 1200px significa "aplica cuando la pantalla tenga 1200px O MÁS".
+     Es lo opuesto de max-width: aquí escalamos hacia ARRIBA en pantallas grandes */
+
+  main {
+    max-width: 1100px;
+    /* En monitores grandes, el contenido puede ser más ancho */
+
+    padding: 24px 40px;
+    /* Más padding horizontal en pantallas grandes */
+  }
+
+  header h1 {
+    font-size: 3rem;
+    /* Título más grande y llamativo en monitores amplios */
+  }
+
+  .instalacion-item {
+    max-width: 700px;
+    /* Las imágenes pueden ser más anchas en pantallas grandes */
+  }
+
+  .servicios-grid {
+    gap: 32px;
+    /* Más espacio entre tarjetas de servicio en pantallas grandes */
+  }
+}
