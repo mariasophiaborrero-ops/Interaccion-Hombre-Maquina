@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pet 360 — Clinica Veterinaria y Grooming</title>
+  <link rel="stylesheet" href="./css/styles.css"/>
+</head>
+
+<body>
+
+  <header>
+    <h1> Pet 360</h1>
+    <h2>Clinica Veterinaria & Grooming</h2>
+    <p>El cuidado completo que tu mascota merece, en un solo lugar.</p>
+    <br>
+    <br>
+    <div class="barra-busqueda">
+    <input type="text" placeholder="Buscar servicio..." />
+    <button>Buscar</button></div>
+</header>
+
+  <main>
+
+    <section>
+      <h2>¿Quienes Somos?</h2>
+      <p>
+        En <strong>Pet 360</strong> somos una familia de veterinarios y estilistas profesionales
+        comprometidos con la salud, bienestar y felicidad de tus mascotas. Atendemos perros y gatos
+        con amor y dedicacion. EMPEZAMOS ESTE 2026!.
+      </p>
+      <p>
+        Contamos con instalaciones modernas, equipo medico de ultima tecnologia y un ambiente
+        tranquilo pensado para que tu mascota se sienta segura en cada visita.
+      </p>
+    </section>
+
+    <section>
+      <h2>Nuestros Servicios</h2>
+
+      <h3> Clinica Veterinaria</h3>
+      <ul>
+        <li>Consulta general y diagnostico</li>
+        <li>Vacunacion y desparasitacion</li>
+        <li>Cirugias y procedimientos medicos</li>
+        <li>Urgencias y cuidados intensivos</li>
+      </ul>
+
+      <h3> Grooming </h3>
+      <ul>
+        <li>Baño y secado profesional</li>
+        <li>Corte de pelo segun raza</li>
+        <li>Limpieza de oidos y corte de unas</li>
+        <li>Spa y tratamientos de pelaje</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Nuestras Instalaciones</h2>
+
+      <div>
+        <img
+          src="https://tse3.mm.bing.net/th/id/OIP.uPBQ4m3tjfrnU44d0GynmAHaE7?rs=1&pid=ImgDetMain&o=7&rm=3"
+          alt="Veterinario revisando a un perro golden retriever en la clinica Pet 360"
+          width="500"
+        />
+        <p><em>Consultas veterinarias con atencion personalizada.</em></p>
+      </div>
+
+      <div>
+        <img
+          src="imagenes/WhatsApp Image 2026-03-05 at 8.29.51 PM.jpeg"
+          alt="Perro siendo bañado y arreglado en el servicio de grooming de Pet 360"
+          width="500"
+        />
+        <p><em>Servicio de grooming profesional para que tu mascota luzca esplendida.</em></p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Tarifas de Servicios</h2>
+
+      <table border="1">
+        <thead>
+          <tr>
+            <th>Servicio</th>
+            <th>Mascota</th>
+            <th>Duracion</th>
+            <th>Precio (COP)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Consulta general</td>
+            <td>Perro / Gato</td>
+            <td>30 min</td>
+            <td>$45.000</td>
+          </tr>
+          <tr>
+            <td>Vacunacion</td>
+            <td>Perro / Gato</td>
+            <td>15 min</td>
+            <td>$35.000</td>
+          </tr>
+          <tr>
+            <td>Baño y secado (pequeño)</td>
+            <td>Perro</td>
+            <td>1 hora</td>
+            <td>$40.000</td>
+          </tr>
+          <tr>
+            <td>Baño y secado (grande)</td>
+            <td>Perro</td>
+            <td>2 horas</td>
+            <td>$70.000</td>
+          </tr>
+          <tr>
+            <td>Corte de pelo + baño</td>
+            <td>Perro / Gato</td>
+            <td>2 horas</td>
+            <td>$85.000</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2> Agendar una Cita</h2>
+      <p>Completa el formulario y nos comunicaremos contigo para confirmar tu cita.</p>
+
+      <div>
+        <form action="#" method="post">
+
+          <div>
+            <label for="nombre">Nombre del dueño:</label><br />
+            <input type="text" id="nombre" name="nombre" placeholder="Ej: Carlos Ramirez" required />
+          </div>
+
+          <br />
+
+          <div>
+            <label for="correo">Correo electronico:</label><br />
+            <input type="email" id="correo" name="correo" placeholder="Ej: carlos@email.com" required />
+          </div>
+
+          <br />
+
+          <div>
+            <label for="telefono">Telefono de contacto:</label><br />
+            <input type="text" id="telefono" name="telefono" placeholder="Ej: 300 123 4567" required />
+          </div>
+
+          <br />
+
+          <div>
+            <label for="mascota">Nombre de la mascota:</label><br />
+            <input type="text" id="mascota" name="mascota" placeholder="Ej: Kiara" required />
+          </div>
+
+          <br />
+
+          <div>
+            <label for="tipo">Tipo de mascota:</label><br />
+            <select id="tipo" name="tipo" required>
+              <option value="">- Selecciona -</option>
+              <option value="perro">Perro</option>
+              <option value="gato">Gato</option>
+              <option value="otro">Otro</option>
+            </select>
+          </div>
+
+          <br />
+
+          <div>
+            <label for="servicio">Servicio solicitado:</label><br />
+            <select id="servicio" name="servicio" required>
+              <option value="">- Selecciona un servicio-</option>
+              <option value="consulta">Consulta veterinaria</option>
+              <option value="vacuna">Vacunacion</option>
+              <option value="baño">Baño y secado</option>
+              <option value="corte">Corte + baño (grooming)</option>
+              <option value="urgencia">Urgencia</option>
+            </select>
+          </div>
+
+          <br />
+
+          <div>
+            <label for="fecha">Fecha preferida:</label><br />
+            <input type="date" id="fecha" name="fecha" required />
+          </div>
+
+          <br />
+
+          <div>
+            <label for="hora">Hora preferida:</label><br />
+            <select id="hora" name="hora">
+              <option value="">-- Selecciona una hora --</option>
+              <option value="08:00">8:00 AM</option>
+              <option value="09:00">9:00 AM</option>
+              <option value="10:00">10:00 AM</option>
+              <option value="11:00">11:00 AM</option>
+              <option value="14:00">2:00 PM</option>
+              <option value="15:00">3:00 PM</option>
+              <option value="16:00">4:00 PM</option>
+            </select>
+          </div>
+
+          <br />
+
+          <div>
+            <label for="notas">Notas adicionales (sintomas, indicaciones, etc.):</label><br />
+            <textarea id="notas" name="notas" rows="3" cols="45" placeholder="Ej: Mi perro tiene tos desde hace 3 dias..."></textarea>
+          </div>
+
+          <br />
+
+          <div>
+            <input type="checkbox" id="terminos" name="terminos" required />
+            <label for="terminos">Acepto los terminos y condiciones de Pet 360.</label>
+          </div>
+
+          <br />
+
+          <div>
+            <input type="submit" value=" Agendar Cita" />
+            <input type="reset" value="Limpiar" />
+          </div>
+
+        </form>
+      </div>
+    </section>
+
+    <section>
+      <h2>Horarios de Atencion</h2>
+
+      <h3>Clinica Veterinaria</h3>
+      <ol>
+        <li>Lunes a Viernes: 8:00 AM - 7:00 PM</li>
+        <li>Sabados: 8:00 AM - 5:00 PM</li>
+        <li>Domingos y festivos: 9:00 AM - 2:00 PM (urgencias)</li>
+      </ol>
+
+      <h3>Grooming</h3>
+      <ol>
+        <li>Lunes a Viernes: 9:00 AM - 6:00 PM</li>
+        <li>Sabados: 9:00 AM - 4:00 PM</li>
+        <li>Domingos: Cerrado</li>
+      </ol>
+
+      <h3>Mas informacion</h3>
+      <p>Visita nuestras redes y sitios de referencia:</p>
+      <ul>
+        <li><a href="https://www.instagram.com/pet_360_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" >Siguenos en Instagram !</a></li>
+        <li><a href="https://maps.app.goo.gl/e4SDGUR4FzZ47ews8" target="_blank" >Ver ubicacion en Google Maps</a></li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer>
+    <h2>Pet 360 - Contacto</h2>
+    <div>
+      <p> Direccion: Auto. Norte #162 - 38, Bogota, Colombia</p>
+      <p> Telefono: 320 844 6632</p>
+      <p> Email: pet_360@gmail.com </a></p>
+    </div>
