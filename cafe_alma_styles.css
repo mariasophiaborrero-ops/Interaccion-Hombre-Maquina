@@ -1,0 +1,739 @@
+/* ============================================================
+   RESET GLOBAL
+   Elimina márgenes y rellenos predeterminados del navegador
+   y establece box-sizing para un control más fácil del diseño
+   ============================================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ============================================================
+   VARIABLES CSS
+   Define colores y valores reutilizables en toda la hoja de estilos.
+   Cambiar una variable aquí afecta a todos los lugares donde se usa.
+   ============================================================ */
+:root {
+  --cafe-oscuro: #2c1810;
+  --cafe-medio: #5c3317;
+  --cafe-claro: #a0522d;
+  --crema: #f5efe6;
+  --crema-oscura: #e8d5b7;
+  --dorado: #c8973a;
+  --dorado-claro: #e8b84b;
+  --texto-oscuro: #1a0f0a;
+  --texto-medio: #4a2c1a;
+  --texto-suave: #7a5c44;
+  --blanco: #fff9f4;
+}
+
+/* ============================================================
+   FUENTES DE GOOGLE FONTS
+   Importa dos tipografías: Playfair Display (serif elegante para títulos)
+   y Lato (sans-serif limpia para cuerpo de texto)
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap');
+
+/* ============================================================
+   BODY: BASE DE LA PÁGINA
+   Configura la tipografía base, colores y fondo de toda la página
+   ============================================================ */
+body {
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  color: var(--texto-oscuro);
+  background-color: var(--crema);
+  line-height: 1.7;
+}
+
+/* Imágenes responsivas por defecto */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ============================================================
+   HEADER (ENCABEZADO PRINCIPAL)
+   Fondo oscuro con textura de café, logo y barra de búsqueda
+   ============================================================ */
+header {
+  background-color: var(--cafe-oscuro);
+  /* Añade un patrón de puntos dorados muy sutiles sobre el fondo oscuro */
+  background-image: radial-gradient(circle, rgba(200, 151, 58, 0.08) 1px, transparent 1px);
+  background-size: 28px 28px;
+  color: var(--blanco);
+  padding: 50px 40px 40px;
+  text-align: center;
+  border-bottom: 4px solid var(--dorado);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Línea decorativa superior del header */
+header::before {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 3px;
+  background-color: var(--dorado);
+  margin: 0 auto 24px;
+  border-radius: 2px;
+}
+
+/* Icono de taza decorativo */
+.icono-header {
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+  display: block;
+  animation: flotar 3s ease-in-out infinite;
+}
+
+/* Animación suave de flotación para el ícono */
+@keyframes flotar {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-6px); }
+}
+
+header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: var(--blanco);
+  margin-bottom: 6px;
+}
+
+/* El nombre "Alma" en dorado dentro del h1 */
+header h1 span {
+  color: var(--dorado);
+  font-style: italic;
+}
+
+header h2 {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 300;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--crema-oscura);
+  margin-bottom: 16px;
+  opacity: 0.85;
+}
+
+/* Línea divisoria decorativa entre el slogan y la búsqueda */
+.separador {
+  width: 60px;
+  height: 1px;
+  background-color: var(--dorado);
+  margin: 16px auto;
+  opacity: 0.6;
+}
+
+header p {
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--crema-oscura);
+  opacity: 0.9;
+  margin-bottom: 24px;
+}
+
+/* ============================================================
+   BARRA DE BÚSQUEDA
+   Input y botón unidos visualmente en el header
+   ============================================================ */
+.barra-busqueda {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 420px;
+}
+
+.barra-busqueda input {
+  padding: 12px 20px;
+  font-size: 0.9rem;
+  font-family: 'Lato', sans-serif;
+  background-color: rgba(255, 249, 244, 0.1);
+  border: 1px solid rgba(200, 151, 58, 0.5);
+  border-right: none;
+  border-radius: 30px 0 0 30px;
+  color: var(--blanco);
+  width: 100%;
+  outline: none;
+  transition: background-color 0.3s;
+}
+
+/* El placeholder del input en color crema */
+.barra-busqueda input::placeholder {
+  color: rgba(245, 239, 230, 0.5);
+}
+
+.barra-busqueda input:focus {
+  background-color: rgba(255, 249, 244, 0.18);
+}
+
+.barra-busqueda button {
+  padding: 12px 22px;
+  background-color: var(--dorado);
+  color: var(--cafe-oscuro);
+  border: none;
+  border-radius: 0 30px 30px 0;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+  transition: background-color 0.3s;
+}
+
+.barra-busqueda button:hover {
+  background-color: var(--dorado-claro);
+}
+
+/* ============================================================
+   NAVEGACIÓN (NAV)
+   Barra de menú con enlaces a las secciones de la página
+   ============================================================ */
+nav {
+  background-color: var(--cafe-medio);
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  border-bottom: 2px solid var(--dorado);
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: var(--crema-oscura);
+  text-decoration: none;
+  padding: 14px 24px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: color 0.3s, background-color 0.3s;
+  display: inline-block;
+}
+
+nav a:hover {
+  color: var(--dorado);
+  background-color: rgba(200, 151, 58, 0.1);
+}
+
+/* ============================================================
+   MAIN (CONTENIDO PRINCIPAL)
+   Limita el ancho y centra el contenido en pantallas grandes
+   ============================================================ */
+main {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+/* ============================================================
+   SECCIONES
+   Tarjetas de contenido con borde, sombra y esquinas redondeadas
+   ============================================================ */
+section {
+  background-color: var(--blanco);
+  border-radius: 4px;
+  padding: 36px;
+  margin-bottom: 32px;
+  border: 1px solid var(--crema-oscura);
+  box-shadow: 0 2px 12px rgba(44, 24, 16, 0.07);
+  position: relative;
+}
+
+/* Línea dorada decorativa en el borde superior de cada sección */
+section::before {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 3px;
+  background-color: var(--dorado);
+  margin-bottom: 20px;
+  border-radius: 2px;
+}
+
+section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.9rem;
+  color: var(--cafe-oscuro);
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--crema-oscura);
+}
+
+section h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  color: var(--cafe-medio);
+  margin: 24px 0 10px;
+}
+
+section p {
+  color: var(--texto-suave);
+  line-height: 1.85;
+  margin-bottom: 12px;
+}
+
+/* Listas dentro de secciones */
+ul, ol {
+  padding-left: 22px;
+  color: var(--texto-suave);
+  line-height: 2;
+}
+
+/* ============================================================
+   SECCIÓN "SOBRE NOSOTROS"
+   Texto introductorio con cita destacada
+   ============================================================ */
+.cita-destacada {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--cafe-claro);
+  border-left: 4px solid var(--dorado);
+  padding: 12px 20px;
+  margin: 20px 0;
+  background-color: var(--crema);
+  border-radius: 0 4px 4px 0;
+}
+
+/* ============================================================
+   GRID DE MENÚ (CARTA)
+   Cuadrícula de tarjetas para categorías del menú
+   ============================================================ */
+.menu-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.card-menu {
+  flex: 1 1 230px;
+  background-color: var(--crema);
+  border: 1px solid var(--crema-oscura);
+  border-top: 3px solid var(--dorado);
+  border-radius: 4px;
+  padding: 22px 20px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card-menu:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(44, 24, 16, 0.12);
+}
+
+/* Icono y título de cada tarjeta del menú */
+.card-menu .icono-menu {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.card-menu h3 {
+  margin-top: 0;
+  font-size: 1.05rem;
+  color: var(--cafe-oscuro);
+}
+
+.card-menu ul {
+  padding-left: 18px;
+  font-size: 0.9rem;
+}
+
+/* ============================================================
+   GALERÍA DE INSTALACIONES
+   Muestra imágenes en un grid de 2 columnas
+   ============================================================ */
+.galeria-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 8px;
+}
+
+.galeria-item {
+  border-radius: 4px;
+  overflow: hidden;
+  /* overflow:hidden asegura que la imagen no se salga del borde redondeado */
+  border: 1px solid var(--crema-oscura);
+}
+
+.galeria-item img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.galeria-item:hover img {
+  transform: scale(1.04);
+  /* Al hacer hover, la imagen crece ligeramente dentro del contenedor */
+}
+
+.galeria-caption {
+  padding: 12px 14px;
+  background-color: var(--crema);
+  font-size: 0.88rem;
+  font-style: italic;
+  color: var(--texto-suave);
+  text-align: center;
+}
+
+/* ============================================================
+   TABLA DE PRECIOS
+   Tabla limpia con encabezado oscuro y filas alternadas
+   ============================================================ */
+.tabla-wrapper {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  min-width: 480px;
+  font-size: 0.95rem;
+}
+
+table th {
+  background-color: var(--cafe-oscuro);
+  color: var(--dorado);
+  padding: 13px 18px;
+  text-align: left;
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 1px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+table td {
+  padding: 12px 18px;
+  border-bottom: 1px solid var(--crema-oscura);
+  color: var(--texto-medio);
+}
+
+/* Filas pares con fondo ligeramente diferente (zebra striping) */
+table tbody tr:nth-child(even) {
+  background-color: var(--crema);
+}
+
+table tr:hover {
+  background-color: #f0e4d4;
+}
+
+/* Precio destacado en dorado */
+table td.precio {
+  font-weight: 700;
+  color: var(--cafe-claro);
+}
+
+/* ============================================================
+   FORMULARIO DE RESERVA
+   Cuadrícula de 2 columnas para los campos del formulario
+   ============================================================ */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 18px;
+}
+
+.form-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Los elementos con esta clase ocupan ambas columnas del grid */
+.form-grupo.ancho-completo {
+  grid-column: 1 / -1;
+}
+
+label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--cafe-medio);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="number"],
+select,
+textarea {
+  padding: 11px 14px;
+  border: 1px solid var(--crema-oscura);
+  border-radius: 4px;
+  font-size: 0.95rem;
+  font-family: 'Lato', sans-serif;
+  color: var(--texto-oscuro);
+  background-color: var(--crema);
+  width: 100%;
+  outline: none;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--dorado);
+  box-shadow: 0 0 0 3px rgba(200, 151, 58, 0.15);
+  /* Un suave halo dorado al enfocar el campo */
+}
+
+textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+.form-terminos {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.88rem;
+  color: var(--texto-suave);
+}
+
+.form-botones {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 14px;
+}
+
+input[type="submit"] {
+  background-color: var(--cafe-oscuro);
+  color: var(--dorado);
+  border: none;
+  padding: 13px 32px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+input[type="submit"]:hover {
+  background-color: var(--cafe-medio);
+  transform: translateY(-2px);
+}
+
+input[type="reset"] {
+  background-color: transparent;
+  color: var(--cafe-medio);
+  border: 2px solid var(--cafe-medio);
+  padding: 11px 26px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+input[type="reset"]:hover {
+  background-color: var(--crema);
+}
+
+/* ============================================================
+   HORARIOS
+   Tarjetas de horarios con diseño consistente con el resto
+   ============================================================ */
+.horarios-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.horario-card {
+  flex: 1 1 220px;
+  background-color: var(--crema);
+  border-radius: 4px;
+  padding: 22px;
+  border-left: 4px solid var(--dorado);
+  border: 1px solid var(--crema-oscura);
+  border-left: 4px solid var(--dorado);
+}
+
+.horario-card h3 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 1rem;
+  color: var(--cafe-oscuro);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+}
+
+.horario-card ol {
+  padding-left: 20px;
+  font-size: 0.92rem;
+}
+
+/* ============================================================
+   REDES SOCIALES Y UBICACIÓN
+   Sección de links con estilo de tarjeta
+   ============================================================ */
+.links-grid {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.link-card {
+  flex: 1 1 180px;
+  background-color: var(--crema);
+  border: 1px solid var(--crema-oscura);
+  border-radius: 4px;
+  padding: 18px 20px;
+  text-align: center;
+  text-decoration: none;
+  color: var(--cafe-medio);
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  transition: background-color 0.3s, color 0.3s, transform 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.link-card .link-icono {
+  font-size: 1.6rem;
+}
+
+.link-card:hover {
+  background-color: var(--cafe-oscuro);
+  color: var(--dorado);
+  transform: translateY(-3px);
+}
+
+/* ============================================================
+   FOOTER (PIE DE PÁGINA)
+   Fondo muy oscuro con información de contacto
+   ============================================================ */
+footer {
+  background-color: var(--cafe-oscuro);
+  background-image: radial-gradient(circle, rgba(200, 151, 58, 0.06) 1px, transparent 1px);
+  background-size: 28px 28px;
+  color: var(--crema);
+  text-align: center;
+  padding: 40px 24px;
+  border-top: 4px solid var(--dorado);
+}
+
+footer .logo-footer {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  font-style: italic;
+  color: var(--dorado);
+  margin-bottom: 6px;
+  letter-spacing: 2px;
+}
+
+footer .tagline-footer {
+  font-size: 0.75rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--crema-oscura);
+  opacity: 0.6;
+  margin-bottom: 20px;
+}
+
+.footer-linea {
+  width: 50px;
+  height: 1px;
+  background-color: var(--dorado);
+  margin: 16px auto;
+  opacity: 0.4;
+}
+
+footer p {
+  font-size: 0.9rem;
+  opacity: 0.75;
+  margin-bottom: 6px;
+  color: var(--crema-oscura);
+}
+
+footer .footer-creditos {
+  font-size: 0.75rem;
+  opacity: 0.35;
+  margin-top: 20px;
+  letter-spacing: 1px;
+}
+
+/* ============================================================
+   MEDIA QUERIES (DISEÑO RESPONSIVO)
+   Ajustes del layout para distintos tamaños de pantalla
+   ============================================================ */
+
+/* Tablet: hasta 768px */
+@media (max-width: 768px) {
+  header { padding: 36px 20px 30px; }
+  header h1 { font-size: 2.3rem; }
+  main { padding: 20px 16px; }
+  section { padding: 28px 20px; }
+  .galeria-grid { grid-template-columns: 1fr; }
+  /* En tablet, la galería pasa a 1 columna */
+}
+
+/* Móvil: hasta 480px */
+@media (max-width: 480px) {
+  header { padding: 28px 16px; }
+  header h1 { font-size: 1.9rem; }
+  main { padding: 14px 12px; }
+  section { padding: 22px 16px; }
+  .barra-busqueda { max-width: 100%; }
+
+  .menu-grid,
+  .horarios-grid,
+  .links-grid {
+    flex-direction: column;
+    /* En móvil, todas las grids flex se apilan verticalmente */
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+    /* Formulario en 1 sola columna en móvil */
+  }
+
+  .form-botones {
+    flex-direction: column;
+  }
+
+  input[type="submit"],
+  input[type="reset"] {
+    width: 100%;
+    padding: 14px;
+    text-align: center;
+  }
+
+  nav a {
+    padding: 12px 14px;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+  }
+}
+
+/* Desktop grande: 1200px o más */
+@media (min-width: 1200px) {
+  main { max-width: 1080px; padding: 36px 40px; }
+  header h1 { font-size: 3.6rem; }
+  .galeria-grid { gap: 28px; }
+  .menu-grid { gap: 28px; }
+}

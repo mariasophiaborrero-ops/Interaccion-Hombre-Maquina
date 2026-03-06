@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<!-- DOCTYPE declara que usamos HTML5, el estándar moderno -->
+<html lang="es">
+<!-- lang="es" indica que el idioma de la página es español -->
+
+<head>
+  <!-- Información de configuración de la página, invisible para el usuario -->
+
+  <meta charset="UTF-8" />
+  <!-- UTF-8 para soportar tildes, ñ y caracteres especiales -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Hace la página responsiva en dispositivos móviles -->
+
+  <title>Café Alma — Especialidad & Terraza</title>
+  <!-- Texto que aparece en la pestaña del navegador -->
+
+  <link rel="stylesheet" href="./styles.css"/>
+  <!-- Conecta este HTML con el archivo de estilos CSS -->
+</head>
+
+<body>
+  <!-- Todo el contenido visible de la página va dentro del body -->
+
+  <!-- ===================== ENCABEZADO ===================== -->
+  <header>
+    <!-- Etiqueta semántica para la cabecera principal de la página -->
+
+    <span class="icono-header">☕</span>
+    <!-- Ícono decorativo con animación de flotación definida en CSS -->
+
+    <h1>Café <span>Alma</span></h1>
+    <!-- h1: título principal. "Alma" tiene clase span para ponerlo en dorado via CSS -->
+
+    <h2>Especialidad · Terraza · Momentos</h2>
+    <!-- h2: subtítulo descriptivo del concepto del café -->
+
+    <div class="separador"></div>
+    <!-- Línea decorativa dorada entre el subtítulo y el slogan -->
+
+    <p>"Cada taza, una historia. Cada visita, un recuerdo."</p>
+    <!-- Slogan del café, mostrado en cursiva -->
+
+    <div class="barra-busqueda">
+      <!-- Contenedor del buscador: flex que une input y botón visualmente -->
+      <input type="text" placeholder="Buscar en nuestro menú..." />
+      <button>Buscar</button>
+    </div>
+  </header>
+  <!-- Fin del header -->
+
+  <!-- ===================== BARRA DE NAVEGACIÓN ===================== -->
+  <nav>
+    <!-- nav: etiqueta semántica para menús de navegación.
+         Permite a usuarios y lectores de pantalla saltar entre secciones -->
+
+    <a href="#nosotros">Nosotros</a>
+    <!-- href="#nosotros" enlaza a la sección con id="nosotros" en la misma página -->
+    <a href="#menu">Menú</a>
+    <a href="#espacio">Nuestro Espacio</a>
+    <a href="#precios">Precios</a>
+    <a href="#reserva">Reservar Mesa</a>
+    <a href="#horarios">Horarios</a>
+  </nav>
+  <!-- Fin de la navegación -->
+
+  <!-- ===================== CONTENIDO PRINCIPAL ===================== -->
+  <main>
+    <!-- main: etiqueta semántica para el contenido principal de la página.
+         Solo debe existir uno por página -->
+
+    <!-- ===== SECCIÓN: SOBRE NOSOTROS ===== -->
+    <section id="nosotros">
+      <!-- id="nosotros" permite navegar a esta sección desde el menú nav -->
+
+      <h2>Nuestra Historia</h2>
+
+      <p>
+        En <strong>Café Alma</strong> creemos que el café es mucho más que una bebida:
+        es un ritual, un pretexto para conectar, para pausar el mundo y estar presentes.
+        Nacimos en 2024 con el sueño de traer el café de especialidad a tu barrio,
+        sin pretensiones, con mucho amor.
+      </p>
+
+      <blockquote class="cita-destacada">
+        <!-- blockquote: etiqueta semántica para citas destacadas. La clase cita-destacada
+             le da el estilo de bloque con borde dorado definido en CSS -->
+        "Trabajamos con granos de origen único, tostados artesanalmente por pequeños
+        productores colombianos. Cada taza tiene nombre, historia y terroir."
+      </blockquote>
+
+      <p>
+        Nuestra terraza, nuestra música cuidada y nuestros pasteles de casa completan
+        la experiencia. Aquí no hay prisa: aquí hay alma.
+      </p>
+    </section>
+    <!-- Fin sección Nosotros -->
+
+    <!-- ===== SECCIÓN: MENÚ / CARTA ===== -->
+    <section id="menu">
+      <h2>Nuestra Carta</h2>
+
+      <div class="menu-grid">
+        <!-- menu-grid: flex container para organizar las tarjetas del menú en fila adaptable -->
+
+        <!-- Tarjeta: Cafés -->
+        <div class="card-menu">
+          <!-- card-menu: tarjeta individual con borde dorado superior y efecto hover en CSS -->
+          <span class="icono-menu">☕</span>
+          <h3>Cafés de Especialidad</h3>
+          <ul>
+            <li>Espresso doble</li>
+            <li>Flat white</li>
+            <li>Cold brew de 18h</li>
+            <li>Filtrado V60</li>
+            <li>Cappuccino artesanal</li>
+          </ul>
+        </div>
+
+        <!-- Tarjeta: Pasteles -->
+        <div class="card-menu">
+          <span class="icono-menu">🍰</span>
+          <h3>Pasteles de Casa</h3>
+          <ul>
+            <li>Tarta de zanahoria</li>
+            <li>Brownie de chocolate 70%</li>
+            <li>Croissant de mantequilla</li>
+            <li>Cheesecake de frutos rojos</li>
+            <li>Muffin de arándanos</li>
+          </ul>
+        </div>
+
+        <!-- Tarjeta: Desayunos -->
+        <div class="card-menu">
+          <span class="icono-menu">🥐</span>
+          <h3>Desayunos & Brunch</h3>
+          <ul>
+            <li>Tostadas con aguacate</li>
+            <li>Bowl de granola y frutas</li>
+            <li>Huevos benedictinos</li>
+            <li>Panqueques de avena</li>
+            <li>Plato campesino</li>
+          </ul>
+        </div>
+
+        <!-- Tarjeta: Bebidas -->
+        <div class="card-menu">
+          <span class="icono-menu">🍵</span>
+          <h3>Otras Bebidas</h3>
+          <ul>
+            <li>Tés de origen</li>
+            <li>Matcha latte</li>
+            <li>Limonada de jengibre</li>
+            <li>Agua de panela con limón</li>
+            <li>Chocolate caliente artesanal</li>
+          </ul>
+        </div>
+
+      </div>
+      <!-- Fin menu-grid -->
+    </section>
+    <!-- Fin sección Menú -->
+
+    <!-- ===== SECCIÓN: NUESTRO ESPACIO (GALERÍA) ===== -->
+    <section id="espacio">
+      <h2>Nuestro Espacio</h2>
+      <p>Un lugar pensado para quedarse: luz natural, plantas, música en vivo los fines de semana y una terraza que te hará olvidar el ruido de la ciudad.</p>
+
+      <div class="galeria-grid">
+        <!-- galeria-grid: CSS Grid de 2 columnas para mostrar las imágenes -->
+
+        <div class="galeria-item">
+          <!-- galeria-item: contenedor con overflow:hidden para que el efecto zoom
+               de la imagen no se salga del borde redondeado -->
+          <img
+            src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=700&q=80"
+            alt="Interior acogedor del Café Alma con luz cálida y mesas de madera"
+          />
+          <!-- alt: descripción de la imagen para accesibilidad y SEO -->
+          <div class="galeria-caption">Interior — calidez y madera natural</div>
+        </div>
+
+        <div class="galeria-item">
+          <img
+            src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=700&q=80"
+            alt="Barista preparando un café de especialidad con técnica de latte art"
+          />
+          <div class="galeria-caption">Barra — latte art y café de origen</div>
+        </div>
+
+        <div class="galeria-item">
+          <img
+            src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&q=80"
+            alt="Terraza exterior del Café Alma rodeada de plantas y luz natural"
+          />
+          <div class="galeria-caption">Terraza — planta y luz natural</div>
+        </div>
+
+        <div class="galeria-item">
+          <img
+            src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=700&q=80"
+            alt="Taza de café espresso con arte latte en mesa de madera"
+          />
+          <div class="galeria-caption">Detalle — cada taza, una obra</div>
+        </div>
+
+      </div>
+      <!-- Fin galeria-grid -->
+    </section>
+    <!-- Fin sección Espacio -->
+
+    <!-- ===== SECCIÓN: PRECIOS ===== -->
+    <section id="precios">
+      <h2>Precios</h2>
+      <p>Calidad de especialidad a precios justos. Sin letra pequeña.</p>
+
+      <div class="tabla-wrapper">
+        <!-- tabla-wrapper: activa scroll horizontal en pantallas pequeñas
+             si la tabla es más ancha que la pantalla -->
+
+        <table>
+          <!-- Tabla HTML para mostrar datos en filas y columnas -->
+
+          <thead>
+            <!-- thead: agrupa semánticamente los encabezados de la tabla -->
+            <tr>
+              <!-- tr: fila de la tabla -->
+              <th>Producto</th>
+              <th>Descripción</th>
+              <th>Tamaño</th>
+              <th>Precio (COP)</th>
+              <!-- th: celda de encabezado, en negrita por defecto -->
+            </tr>
+          </thead>
+
+          <tbody>
+            <!-- tbody: agrupa todas las filas de datos -->
+            <tr>
+              <td>Espresso</td>
+              <td>Simple o doble, grano Huila</td>
+              <td>60 / 90 ml</td>
+              <td class="precio">$5.000</td>
+              <!-- clase "precio" resalta el valor en dorado via CSS -->
+            </tr>
+            <tr>
+              <td>Flat White</td>
+              <td>Doble espresso con leche texturizada</td>
+              <td>160 ml</td>
+              <td class="precio">$9.000</td>
+            </tr>
+            <tr>
+              <td>Cold Brew</td>
+              <td>Extracción fría 18 horas, sin amargura</td>
+              <td>300 ml</td>
+              <td class="precio">$11.000</td>
+            </tr>
+            <tr>
+              <td>Filtrado V60</td>
+              <td>Café de origen, notas frutales</td>
+              <td>250 ml</td>
+              <td class="precio">$10.000</td>
+            </tr>
+            <tr>
+              <td>Brownie</td>
+              <td>Chocolate 70%, nueces y sal marina</td>
+              <td>Porción</td>
+              <td class="precio">$8.000</td>
+            </tr>
+            <tr>
+              <td>Desayuno completo</td>
+              <td>Tostadas, huevo, fruta y bebida</td>
+              <td>—</td>
+              <td class="precio">$22.000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <!-- Fin sección Precios -->
+
+    <!-- ===== SECCIÓN: FORMULARIO DE RESERVA ===== -->
+    <section id="reserva">
+      <h2>Reservar Mesa</h2>
+      <p>¿Cumpleaños, reunión especial o simplemente quieres asegurar tu lugar? Cuéntanos y te confirmamos en menos de 24 horas.</p>
+
+      <form action="#" method="post" class="form-grid">
+        <!-- form: recopila datos del usuario.
+             action="#" = sin servidor real aún.
+             method="post" = envío seguro de datos.
+             class="form-grid" = layout de 2 columnas via CSS Grid -->
+
+        <!-- Campo: Nombre -->
+        <div class="form-grupo">
+          <label for="nombre">Tu nombre</label>
+          <!-- label conectado al input por for="nombre" ↔ id="nombre" -->
+          <input type="text" id="nombre" name="nombre" placeholder="Ej: María García" required />
+          <!-- required: campo obligatorio, el formulario no se envía si está vacío -->
+        </div>
+
+        <!-- Campo: Correo -->
+        <div class="form-grupo">
+          <label for="correo">Correo electrónico</label>
+          <input type="email" id="correo" name="correo" placeholder="Ej: maria@correo.com" required />
+          <!-- type="email": valida automáticamente formato de email -->
+        </div>
+
+        <!-- Campo: Teléfono -->
+        <div class="form-grupo">
+          <label for="telefono">Teléfono</label>
+          <input type="text" id="telefono" name="telefono" placeholder="Ej: 311 456 7890" required />
+        </div>
+
+        <!-- Campo: Número de personas -->
+        <div class="form-grupo">
+          <label for="personas">Número de personas</label>
+          <input type="number" id="personas" name="personas" min="1" max="20" placeholder="Ej: 4" required />
+          <!-- type="number": solo acepta números. min y max limitan el rango permitido -->
+        </div>
+
+        <!-- Campo: Fecha -->
+        <div class="form-grupo">
+          <label for="fecha">Fecha de la visita</label>
+          <input type="date" id="fecha" name="fecha" required />
+          <!-- type="date": muestra un selector de calendario en el navegador -->
+        </div>
+
+        <!-- Campo: Hora -->
+        <div class="form-grupo">
+          <label for="hora">Hora preferida</label>
+          <select id="hora" name="hora" required>
+            <!-- select: menú desplegable para elegir una opción -->
+            <option value="">— Elige una hora —</option>
+            <option value="08:00">8:00 AM</option>
+            <option value="09:00">9:00 AM</option>
+            <option value="10:00">10:00 AM</option>
+            <option value="11:00">11:00 AM</option>
+            <option value="12:00">12:00 PM</option>
+            <option value="14:00">2:00 PM</option>
+            <option value="15:00">3:00 PM</option>
+            <option value="16:00">4:00 PM</option>
+            <option value="17:00">5:00 PM</option>
+          </select>
+        </div>
+
+        <!-- Campo: Ocasión -->
+        <div class="form-grupo">
+          <label for="ocasion">Ocasión</label>
+          <select id="ocasion" name="ocasion">
+            <option value="">— Selecciona —</option>
+            <option value="cumpleanos">Cumpleaños</option>
+            <option value="reunion">Reunión de trabajo</option>
+            <option value="pareja">Cita romántica</option>
+            <option value="amigos">Salida con amigos</option>
+            <option value="otro">Otro</option>
+          </select>
+        </div>
+
+        <!-- Campo: Zona -->
+        <div class="form-grupo">
+          <label for="zona">Zona preferida</label>
+          <select id="zona" name="zona">
+            <option value="">— Sin preferencia —</option>
+            <option value="interior">Interior</option>
+            <option value="terraza">Terraza</option>
+            <option value="barra">Barra de café</option>
+          </select>
+        </div>
+
+        <!-- Campo: Notas (ocupa ancho completo) -->
+        <div class="form-grupo ancho-completo">
+          <!-- ancho-completo: hace que este grupo ocupe las 2 columnas del grid -->
+          <label for="notas">Notas especiales (alergias, decoración, etc.)</label>
+          <textarea id="notas" name="notas" rows="3" placeholder="Ej: Somos veganos, necesitamos silla para bebé..."></textarea>
+          <!-- textarea: campo de texto multilínea. rows define la altura inicial visible -->
+        </div>
+
+        <!-- Checkbox de términos -->
+        <div class="form-terminos">
+          <input type="checkbox" id="terminos" name="terminos" required />
+          <!-- type="checkbox": casilla de verificación.
+               required: obliga a marcarla antes de enviar el formulario -->
+          <label for="terminos">Acepto los términos de reserva y la política de privacidad del Café Alma.</label>
+        </div>
+
+        <!-- Botones de acción -->
+        <div class="form-botones">
+          <input type="submit" value="Confirmar Reserva" />
+          <!-- submit: envía el formulario al servidor (o a action="#") -->
+          <input type="reset" value="Limpiar" />
+          <!-- reset: borra todos los campos y los vuelve a su estado inicial -->
+        </div>
+
+      </form>
+    </section>
+    <!-- Fin sección Reserva -->
+
+    <!-- ===== SECCIÓN: HORARIOS Y LINKS ===== -->
+    <section id="horarios">
+      <h2>Horarios & Más Info</h2>
+
+      <div class="horarios-grid">
+        <!-- horarios-grid: flex container para las tarjetas de horario -->
+
+        <div class="horario-card">
+          <!-- horario-card: tarjeta con borde dorado izquierdo y fondo crema -->
+
+          <h3>☕ Cafetería</h3>
+          <ol>
+            <!-- ol: lista ordenada (numerada), adecuada para secuencia de días -->
+            <li>Lunes a Viernes: 7:30 AM — 8:00 PM</li>
+            <li>Sábados: 8:00 AM — 9:00 PM</li>
+            <li>Domingos: 9:00 AM — 5:00 PM</li>
+          </ol>
+        </div>
+
+        <div class="horario-card">
+          <h3>🍳 Cocina & Brunch</h3>
+          <ol>
+            <li>Lunes a Viernes: 7:30 AM — 3:00 PM</li>
+            <li>Sábados y Domingos: 8:00 AM — 4:00 PM</li>
+            <li>Festivos: Horario dominical</li>
+          </ol>
+        </div>
+
+        <div class="horario-card">
+          <h3>🎵 Eventos</h3>
+          <ol>
+            <li>Música en vivo: Viernes y Sábado noche</li>
+            <li>Cata de cafés: Jueves 6:00 PM</li>
+            <li>Brunch especial: Últimos domingos del mes</li>
+          </ol>
+        </div>
+
+      </div>
+      <!-- Fin horarios-grid -->
+
+      <h3 style="margin-top: 28px;">Encuéntranos</h3>
+      <!-- style="" inline: aplica estilos directamente en el elemento.
+           Útil para ajustes puntuales sin crear una clase específica -->
+
+      <div class="links-grid">
+        <!-- links-grid: flex container para los botones de redes y ubicación -->
+
+        <a href="https://www.instagram.com" target="_blank" class="link-card">
+          <!-- a: enlace. target="_blank" abre en nueva pestaña.
+               class="link-card" le da el estilo de tarjeta clickeable -->
+          <span class="link-icono">📸</span>
+          Instagram
+        </a>
+
+        <a href="https://maps.google.com" target="_blank" class="link-card">
+          <span class="link-icono">📍</span>
+          Google Maps
+        </a>
+
+        <a href="https://wa.me/573001234567" target="_blank" class="link-card">
+          <!-- wa.me es el link directo de WhatsApp con número de teléfono -->
+          <span class="link-icono">💬</span>
+          WhatsApp
+        </a>
+
+        <a href="mailto:hola@cafealma.co" class="link-card">
+          <!-- mailto: abre el cliente de correo del dispositivo con este email -->
+          <span class="link-icono">✉️</span>
+          Email
+        </a>
+
+      </div>
+      <!-- Fin links-grid -->
+    </section>
+    <!-- Fin sección Horarios -->
+
+  </main>
+  <!-- Fin del main -->
+
+  <!-- ===================== PIE DE PÁGINA ===================== -->
+  <footer>
+    <!-- footer: etiqueta semántica para el pie de página con info de contacto -->
+
+    <div class="logo-footer">Café Alma</div>
+    <!-- Logo textual en el footer, con tipografía y color diferentes -->
+
+    <div class="tagline-footer">Especialidad · Terraza · Momentos</div>
+
+    <div class="footer-linea"></div>
+    <!-- Línea decorativa dorada -->
+
+    <p>📍 Calle 85 #13-42, Chapinero, Bogotá, Colombia</p>
+    <p>📞 +57 300 123 4567</p>
+    <p>✉️ hola@cafealma.co</p>
+
+    <div class="footer-linea"></div>
+
+    <p class="footer-creditos">© 2024 Café Alma — Todos los derechos reservados</p>
+
+  </footer>
+  <!-- Fin del footer -->
+
+</body>
+<!-- Fin del body -->
+
+</html>
+<!-- Fin del documento HTML -->
