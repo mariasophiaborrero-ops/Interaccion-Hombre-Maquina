@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<!-- ═══════════════════════════════════════════════════════════════
+     DOCTYPE: Le dice al navegador qué versión de HTML usar.
+     "html" = HTML5 (la versión moderna actual).
+     ═══════════════════════════════════════════════════════════════ -->
+
+<html lang="es">
+<!-- <html> es el elemento raíz. Envuelve TODO el documento.
+     lang="es" → atributo que indica el idioma de la página.
+     Atributo = nombre="valor" dentro de la etiqueta de apertura. -->
+
+<head>
+  <!-- ───────────────────────────────────────────────────────────
+       <head>: Metadatos. El navegador los lee pero NO los muestra
+       en la página. Aquí van configuraciones, título, estilos, etc.
+       ─────────────────────────────────────────────────────────── -->
+
+  <meta charset="UTF-8">
+  <!-- <meta> define metadatos. charset="UTF-8" → codificación de
+       caracteres: permite tildes, ñ, emojis, etc.
+       Es una etiqueta vacía: no tiene etiqueta de cierre. -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- viewport → hace que el sitio sea responsive (se adapte al móvil).
+       width=device-width: ancho igual al del dispositivo.
+       initial-scale=1.0: zoom inicial al 100%. -->
+
+  <title>Guía HTML + CSS</title>
+  <!-- <title>: El texto que aparece en la pestaña del navegador.
+       Sí tiene etiqueta de cierre: </title> -->
+
+  <link rel="stylesheet" href="/css/styles.css">
+  <!-- <link>: Vincula archivos externos. Etiqueta vacía (sin cierre).
+       rel="stylesheet" → tipo de relación (hoja de estilos).
+       href="styles.css" → ruta al archivo CSS. -->
+
+</head>
+<!-- Fin del <head>. Todo lo visual va en <body>. -->
+
+<body>
+  <!-- ───────────────────────────────────────────────────────────
+       <body>: El contenido visible de la página.
+       Estructura básica de una etiqueta HTML:
+
+         <etiqueta atributo="valor"> contenido </etiqueta>
+          ↑ apertura                              ↑ cierre
+
+       Las etiquetas vacías (sin contenido) no necesitan cierre:
+         <img>, <input>, <br>, <hr>, <meta>, <link>
+       ─────────────────────────────────────────────────────────── -->
+
+  <!-- ══════════════ ENCABEZADOS ══════════════ -->
+  <!-- h1 a h6: encabezados de mayor a menor importancia.
+       Solo debe haber UN <h1> por página (el título principal). -->
+  <h1>Guía de HTML &amp; CSS</h1>
+  <!-- &amp; es una "entidad HTML": forma de escribir caracteres
+       especiales. & → &amp;   < → &lt;   > → &gt;   " → &quot; -->
+
+  <h2>Estructura y etiquetas básicas</h2>
+  <h3>Subtítulo de tercer nivel</h3>
+
+
+  <!-- ══════════════ TEXTO ══════════════ -->
+  <p>Esto es un <strong>párrafo</strong>. La etiqueta <em>p</em> es
+     el bloque de texto más común en HTML.</p>
+  <!-- <p>: párrafo. Bloque: ocupa toda la línea disponible.
+       <strong>: negrita (y énfasis semántico fuerte).
+       <em>: cursiva (énfasis). Ambas son etiquetas en línea (inline):
+       solo ocupan el espacio de su contenido. -->
+
+  <p>Salto de línea simple:<br>esto sigue en la línea de abajo.</p>
+  <!-- <br>: salto de línea. Etiqueta vacía, sin cierre. -->
+
+  <hr>
+  <!-- <hr>: línea divisoria horizontal. Etiqueta vacía. -->
+
+
+  <!-- ══════════════ LISTAS ══════════════ -->
+  <h2>Listas</h2>
+
+  <ul>
+    <!-- <ul>: lista desordenada (viñetas). Unordered List. -->
+    <li>Elemento de lista</li>
+    <!-- <li>: ítem de lista. List Item. Va dentro de ul o ol. -->
+    <li>Otro elemento</li>
+    <li>Un más</li>
+  </ul>
+
+  <ol>
+    <!-- <ol>: lista ordenada (numerada). Ordered List. -->
+    <li>Primero</li>
+    <li>Segundo</li>
+    <li>Tercero</li>
+  </ol>
+
+
+  <!-- ══════════════ ENLACES E IMÁGENES ══════════════ -->
+  <h2>Enlaces e imágenes</h2>
+
+  <a href="https://developer.mozilla.org" target="_blank">
+    Ir a MDN Web Docs
+  </a>
+  <!-- <a>: enlace (anchor). Etiqueta en línea.
+       href → URL de destino.
+       target="_blank" → abre en nueva pestaña.
+       El contenido entre las etiquetas es el texto clickeable. -->
+
+  <br><br>
+
+  <img src="https://via.placeholder.com/300x150" alt="Imagen de ejemplo" width="300">
+  <!-- <img>: imagen. Etiqueta vacía (sin cierre).
+       src → ruta o URL de la imagen.
+       alt → texto alternativo (accesibilidad + SEO).
+       width → ancho en píxeles (mejor controlarlo desde CSS). -->
+
+
+  <!-- ══════════════ CONTENEDORES ══════════════ -->
+  <h2>Contenedores</h2>
+
+  <div class="caja-demo">
+    <!-- <div>: contenedor genérico de bloque. No tiene significado
+         semántico. Se usa para agrupar y aplicar estilos.
+         class="nombre" → asigna una clase CSS al elemento.
+         Un elemento puede tener varias clases: class="clase1 clase2" -->
+    <p>Esto está dentro de un <span class="resaltado">div</span>.</p>
+    <!-- <span>: contenedor genérico en línea. Como div pero inline.
+         id="nombre" → identificador único (solo uno por página). -->
+  </div>
+
+  <!-- Etiquetas semánticas: como <div> pero con significado propio.
+       Ayudan a SEO y accesibilidad. -->
+  <header>   <!-- Cabecera de página o sección  --> </header>
+  <nav>      <!-- Barra de navegación           --> </nav>
+  <main>     <!-- Contenido principal            --> </main>
+  <section>  <!-- Sección temática              --> </section>
+  <article>  <!-- Contenido independiente        --> </article>
+  <aside>    <!-- Contenido secundario/lateral   --> </aside>
+  <footer>   <!-- Pie de página                 --> </footer>
+
+
+  <!-- ══════════════ FORMULARIOS ══════════════ -->
+  <h2>Formularios</h2>
+
+  <form action="/enviar" method="POST">
+    <!-- <form>: formulario. Agrupa campos de entrada.
+         action → URL donde se envían los datos.
+         method → método HTTP: GET (URL) o POST (oculto). -->
+
+    <label for="nombre">Nombre:</label>
+    <!-- <label>: etiqueta de un campo. for="id" lo vincula al input. -->
+
+    <input type="text" id="nombre" name="nombre" placeholder="Tu nombre">
+    <!-- <input>: campo de entrada. Etiqueta vacía.
+         type → define el tipo: text, email, password, number,
+                checkbox, radio, file, submit, button, date...
+         id → vinculado al label con for="id".
+         name → nombre del dato al enviar el form.
+         placeholder → texto de ayuda dentro del campo. -->
+
+    <br><br>
+
+    <label for="mensaje">Mensaje:</label><br>
+    <textarea id="mensaje" name="mensaje" rows="4" cols="40">
+    </textarea>
+    <!-- <textarea>: campo de texto multilínea. SÍ tiene cierre.
+         rows y cols → tamaño inicial (mejor controlarlo con CSS). -->
+
+    <br><br>
+
+    <select name="opcion">
+      <!-- <select>: menú desplegable. -->
+      <option value="a">Opción A</option>
+      <!-- <option>: cada elemento del desplegable.
+           value → valor enviado al server. -->
+      <option value="b">Opción B</option>
+    </select>
+
+    <br><br>
+
+    <button type="submit">Enviar</button>
+    <!-- <button>: botón.
+         type="submit" → envía el formulario.
+         type="button" → botón normal (sin enviar).
+         type="reset"  → limpia el formulario. -->
+  </form>
+
+
+  <!-- ══════════════ TABLAS ══════════════ -->
+  <h2>Tablas</h2>
+
+  <table>
+    <!-- <table>: tabla. Estructura: thead → tbody → tfoot. -->
+    <thead>
+      <!-- <thead>: encabezado de la tabla. -->
+      <tr>
+        <!-- <tr>: fila (table row). -->
+        <th>Columna 1</th>
+        <th>Columna 2</th>
+        <!-- <th>: celda de encabezado (table header). Negrita por defecto. -->
+      </tr>
+    </thead>
+    <tbody>
+      <!-- <tbody>: cuerpo de la tabla. -->
+      <tr>
+        <td>Dato 1</td>
+        <td>Dato 2</td>
+        <!-- <td>: celda de datos (table data). -->
+      </tr>
+      <tr>
+        <td>Dato 3</td>
+        <td>Dato 4</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <!-- ══════════════ COMENTARIOS ══════════════ -->
+  <!-- Esto es un comentario HTML. No se muestra en la página.
+       Útil para documentar el código o desactivar partes.
+       Atajo en VS Code: Ctrl+/ (o Cmd+/ en Mac) -->
+
+</body>
+</html>
+<!-- Cierre de <html>. El documento termina aquí. -->

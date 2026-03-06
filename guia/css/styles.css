@@ -1,0 +1,545 @@
+/* ═══════════════════════════════════════════════════════════════
+   GUÍA BÁSICA DE CSS — Cascading Style Sheets
+   Archivo vinculado desde index.html con:
+     <link rel="stylesheet" href="styles.css">
+   ═══════════════════════════════════════════════════════════════
+
+   SINTAXIS BÁSICA DE UNA REGLA CSS:
+
+     selector {
+       propiedad: valor;
+       propiedad: valor;
+     }
+
+   ─ selector → qué elemento(s) quiero estilizar
+   ─ { }      → bloque de declaraciones
+   ─ propiedad: valor; → cada estilo (siempre termina en punto y coma)
+
+   Los comentarios en CSS van entre:  /* así  */
+
+
+/* ══════════════ SELECTORES ══════════════════════════════════════
+
+   Hay 3 tipos básicos de selector:
+
+   1. Etiqueta     → selecciona TODOS los elementos de ese tipo
+   2. Clase .      → selecciona elementos con class="nombre"
+   3. ID #         → selecciona el elemento con id="nombre" (único)
+
+   ══════════════════════════════════════════════════════════════ */
+
+/* — Selector de etiqueta — */
+body {
+  /* Estilos que se aplican a toda la página */
+  font-family: Georgia, serif;
+  /* font-family: fuente. Se listan alternativas separadas por comas.
+     La última debe ser una familia genérica: serif, sans-serif,
+     monospace, cursive, fantasy. */
+
+  background-color: #f5f0e8;
+  /* background-color: color de fondo. Acepta:
+     - Nombre:       red, blue, white, black, transparent...
+     - Hexadecimal:  #rrggbb  →  #ff0000 (rojo), #000 (negro)
+     - RGB:          rgb(255, 0, 0)
+     - RGBA:         rgba(255, 0, 0, 0.5)  ← con opacidad (0-1)
+     - HSL:          hsl(0, 100%, 50%) */
+
+  color: #2c2c2c;
+  /* color: color del TEXTO. Mismo sistema que background-color. */
+
+  margin: 0;
+  /* margin: espacio FUERA del elemento (entre él y otros).
+     margin: 0 → elimina el margen por defecto del body. */
+
+  padding: 20px;
+  /* padding: espacio INTERIOR del elemento (entre borde y contenido).
+     Diferencia clave: margin es exterior, padding es interior.*/
+
+  line-height: 1.6;
+  /* line-height: altura de línea (interlineado).
+     Sin unidad → multiplicador del tamaño de fuente actual. */
+}
+
+/* — Selector de etiqueta para h1, h2, h3 — */
+h1 {
+  font-size: 2.5rem;
+  /* font-size: tamaño de fuente. Unidades habituales:
+     - px   → píxeles. Absoluto. Ej: 16px
+     - rem  → relativo al tamaño raíz (root). 1rem = 16px por defecto.
+     - em   → relativo al elemento padre. 1em = tamaño del padre.
+     - %    → porcentaje del elemento padre.
+     - vw   → porcentaje del ancho de la ventana (viewport width).
+     - vh   → porcentaje del alto de la ventana (viewport height). */
+
+  color: #1a1a2e;
+
+  letter-spacing: 0.05em;
+  /* letter-spacing: espacio entre letras. */
+
+  text-transform: uppercase;
+  /* text-transform: transforma el texto.
+     uppercase → MAYÚSCULAS | lowercase → minúsculas | capitalize → Primera En Mayúscula */
+}
+
+h2 {
+  font-size: 1.6rem;
+  color: #3a3a5c;
+  border-bottom: 2px solid #c8a45e;
+  /* border: borde del elemento.
+     Sintaxis abreviada: grosor  estilo  color
+     Estilos: solid, dashed, dotted, double, none
+     border-bottom → solo el borde inferior.
+     También: border-top, border-left, border-right */
+
+  padding-bottom: 6px;
+  /* Se puede aplicar padding/margin a lados específicos:
+     padding-top | padding-right | padding-bottom | padding-left */
+
+  margin-top: 2rem;
+}
+
+h3 {
+  font-size: 1.2rem;
+  color: #5a5a7a;
+}
+
+/* — Selector de etiqueta múltiple (coma = "y también") — */
+h1, h2, h3 {
+  font-weight: bold;
+  /* font-weight: grosor de la fuente.
+     normal | bold | bolder | lighter | 100-900 */
+}
+
+p {
+  margin-bottom: 1rem;
+  max-width: 700px;
+  /* max-width: ancho máximo. El elemento nunca será más ancho que esto,
+     pero puede ser más angosto. También existe min-width. */
+}
+
+a {
+  color: #c8a45e;
+  text-decoration: none;
+  /* text-decoration: decoración del texto.
+     none → sin subrayado | underline → subrayado |
+     line-through → tachado | overline → línea encima */
+
+  font-weight: bold;
+}
+
+a:hover {
+  /* :hover es una "pseudo-clase": aplica estilos cuando el
+     usuario pone el cursor encima del elemento.
+     Otras pseudo-clases útiles:
+       :focus   → cuando el elemento tiene foco (ej: input activo)
+       :active  → mientras se hace click
+       :visited → enlace ya visitado
+       :first-child / :last-child → primer/último hijo
+       :nth-child(n) → hijo número n */
+  text-decoration: underline;
+  color: #e8b46e;
+}
+
+img {
+  max-width: 100%;
+  /* Buena práctica: las imágenes nunca sobresalen de su contenedor. */
+  display: block;
+  /* display: cómo se comporta el elemento en el flujo del documento.
+     block  → ocupa toda la línea, acepta width/height, margin auto.
+     inline → fluye con el texto, no acepta width/height vertical.
+     inline-block → fluye con texto PERO acepta width/height.
+     none   → oculta el elemento (no ocupa espacio).
+     flex   → activa Flexbox en el contenedor (ver más abajo).
+     grid   → activa CSS Grid en el contenedor. */
+  margin-top: 10px;
+}
+
+/* — Selector de clase (punto + nombre) — */
+.caja-demo {
+  /* Aplica a cualquier elemento con class="caja-demo" */
+  background-color: #e7c7c7;
+  border: 1px solid #d4c5a9;
+  border-radius: 8px;
+  /* border-radius: redondea las esquinas.
+     8px → algo redondeado. 50% → círculo perfecto (en cuadrados). */
+
+  padding: 20px;
+  /* Padding con 1 valor → igual en los 4 lados.
+     padding: 10px 20px     → vertical | horizontal
+     padding: 10px 20px 5px → top | horizontal | bottom
+     padding: 5px 10px 15px 20px → top | right | bottom | left
+     (misma lógica para margin) */
+
+  margin: 20px 0;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  /* box-shadow: sombra de la caja.
+     valores: offset-x  offset-y  blur  spread  color
+     offset-x: desplazamiento horizontal (negativo = izquierda)
+     offset-y: desplazamiento vertical   (negativo = arriba)
+     blur: difuminado (mayor = más suave)
+     spread: expansión de la sombra (opcional)
+     Se pueden apilar varias sombras separadas por coma. */
+
+  width: 80%;
+  /* width: ancho del elemento. También: height para el alto.
+     Acepta px, %, rem, vw, etc. */
+}
+
+/* — Selector de ID (numeral + nombre) — */
+#nombre {
+  /* Aplica solo al elemento con id="nombre".
+     Más específico que clase, menos reutilizable. */
+  border: 2px solid #c8a45e;
+  outline: none;
+  /* outline: similar al border pero fuera del flujo.
+     none → quita el borde de foco por defecto de los inputs. */
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+/* — Selector de clase para span — */
+.resaltado {
+  background-color: #c8a45e;
+  color: #ffffff;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: monospace;
+}
+
+
+/* ══════════════ MODELO DE CAJA (Box Model) ═══════════════════════
+
+   Todo elemento HTML es una caja rectangular con estas capas:
+
+   ┌─────────────────────────────┐  ← margin (espacio exterior)
+   │  ┌───────────────────────┐  │
+   │  │  border               │  │
+   │  │  ┌─────────────────┐  │  │
+   │  │  │  padding        │  │  │
+   │  │  │  ┌───────────┐  │  │  │
+   │  │  │  │  content  │  │  │  │
+   │  │  │  └───────────┘  │  │  │
+   │  │  └─────────────────┘  │  │
+   │  └───────────────────────┘  │
+   └─────────────────────────────┘
+
+   Por defecto: width/height se aplica solo al CONTENIDO.
+   Con box-sizing: border-box, width/height incluye padding y border.
+   ══════════════════════════════════════════════════════════════ */
+
+* {
+  /* * → selector universal: aplica a TODOS los elementos. */
+  box-sizing: border-box;
+  /* Hace que width incluya padding y border. Mucho más intuitivo.
+     Es una práctica estándar poner esto al inicio. */
+}
+
+
+/* ══════════════ FLEXBOX ══════════════════════════════════════════
+
+   Flexbox: sistema de layout para distribuir elementos en UNA
+   dimensión (fila o columna).
+   Se activa en el CONTENEDOR con display: flex.
+   ══════════════════════════════════════════════════════════════ */
+
+.contenedor-flex {
+  display: flex;
+  /* Activa flexbox. Los hijos se convierten en "flex items". */
+
+  flex-direction: row;
+  /* Dirección principal:
+     row (default) → izquierda a derecha (horizontal)
+     column        → arriba a abajo (vertical)
+     row-reverse / column-reverse → invertidos */
+
+  justify-content: space-between;
+  /* Alineación en el eje PRINCIPAL (según flex-direction):
+     flex-start  → al inicio
+     flex-end    → al final
+     center      → al centro
+     space-between → espacio igual ENTRE elementos
+     space-around  → espacio igual ALREDEDOR de elementos
+     space-evenly  → espacio igual entre todos (incluye bordes) */
+
+  align-items: center;
+  /* Alineación en el eje CRUZADO (perpendicular a flex-direction):
+     stretch     → estira al tamaño del contenedor (default)
+     flex-start  → al inicio del eje cruzado
+     flex-end    → al final del eje cruzado
+     center      → centrado */
+
+  gap: 16px;
+  /* gap: espacio entre flex items.
+     También: row-gap y column-gap por separado. */
+
+  flex-wrap: wrap;
+  /* flex-wrap: qué hacer si los items no caben en una fila.
+     nowrap (default) → no se rompe (puede desbordarse)
+     wrap             → los items saltan a la siguiente línea */
+}
+
+.flex-item {
+  flex: 1;
+  /* flex: propiedad abreviada de los HIJOS flex.
+     flex: 1 → el item crece para llenar el espacio disponible.
+     Se puede usar flex: 0 0 200px (no crece, no encoge, 200px base). */
+}
+
+
+/* ══════════════ VARIABLES CSS ════════════════════════════════════
+
+   CSS Custom Properties (variables): permiten reutilizar valores.
+   Se definen en :root y se usan con var(--nombre).
+   ══════════════════════════════════════════════════════════════ */
+
+:root {
+  /* :root → selector del elemento raíz (html). Ideal para variables
+     globales (accesibles en todo el documento). */
+  --color-primario: #1a1a2e;
+  --color-acento:   #c8a45e;
+  --color-fondo:    #f5f0e8;
+  --espaciado-base: 1rem;
+  --radio-borde:    8px;
+  /* Convención: nombres en kebab-case, prefijados con -- */
+}
+
+/* Uso de variables con var() */
+.usando-variables {
+  color: var(--color-primario);
+  background-color: var(--color-fondo);
+  padding: var(--espaciado-base);
+  border-radius: var(--radio-borde);
+  border: 2px solid var(--color-acento);
+  /* Cambiar una variable en :root actualiza todos los usos. */
+}
+
+
+/* ══════════════ MEDIA QUERIES (Responsive Design) ════════════════
+
+   @media: aplica estilos solo si se cumple una condición.
+   Permiten adaptar el diseño a diferentes tamaños de pantalla.
+   ══════════════════════════════════════════════════════════════ */
+
+/* Estilos para pantallas de máximo 768px (tablets y móviles) */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+    font-size: 15px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+    /* En móvil, el h1 es más pequeño. */
+  }
+
+  .contenedor-flex {
+    flex-direction: column;
+    /* En móvil, los items se apilan verticalmente. */
+  }
+}
+
+/* Estilos para pantallas de mínimo 1200px (escritorios grandes) */
+@media (min-width: 1200px) {
+  body {
+    max-width: 1100px;
+    margin: 0 auto;
+    /* margin: 0 auto → centra el body horizontalmente.
+       Solo funciona en elementos de bloque con width definido. */
+  }
+}
+
+
+/* ══════════════ PSEUDO-ELEMENTOS ════════════════════════════════
+
+   ::before y ::after: insertan contenido virtual antes/después
+   del contenido de un elemento, sin modificar el HTML.
+   Son elementos inline por defecto; con display:block se comportan
+   como bloques.
+   ══════════════════════════════════════════════════════════════ */
+
+h2::before {
+  content: "◆ ";
+  /* content: OBLIGATORIO en pseudo-elementos. Puede ser texto,
+     "", url(), counter()... */
+  color: var(--color-acento);
+}
+
+/* Otros pseudo-elementos:
+   ::first-line   → primera línea de un párrafo
+   ::first-letter → primera letra (para drop caps)
+   ::placeholder  → placeholder de inputs
+   ::selection    → texto seleccionado por el usuario */
+
+
+/* ══════════════ TRANSICIONES Y ANIMACIONES ═══════════════════════
+
+   transition: anima el cambio entre valores de propiedades.
+   Sintaxis: propiedad  duración  timing-function  retraso
+   ══════════════════════════════════════════════════════════════ */
+
+a {
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+  /* color cambia suavemente en 0.3 segundos con curva "ease".
+     Timing functions: ease | linear | ease-in | ease-out |
+                       ease-in-out | cubic-bezier(n,n,n,n) */
+}
+
+.caja-demo {
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.caja-demo:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+  /* transform: aplica transformaciones geométricas.
+     translateY(-2px) → mueve 2px hacia arriba.
+     Otras: translateX() | scale() | rotate() | skew()
+     Se pueden combinar: transform: translateX(10px) scale(1.1) */
+}
+
+/* @keyframes: define una animación personalizada */
+@keyframes aparecer {
+  /* nombre de la animación: "aparecer" */
+  from {
+    /* from = 0% → estado inicial */
+    opacity: 0;
+    /* opacity: transparencia. 0 = invisible, 1 = opaco. */
+    transform: translateY(20px);
+  }
+  to {
+    /* to = 100% → estado final */
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Se puede usar 0%, 25%, 50%, 75%, 100% para pasos intermedios */
+
+body {
+  animation: aparecer 0.8s ease forwards;
+  /* animation: nombre  duración  timing  retraso  iteraciones  dirección  fill-mode
+     forwards → al terminar, mantiene el estado final (to/100%). */
+}
+
+
+/* ══════════════ ESPECIFICIDAD ════════════════════════════════════
+
+   Cuando dos reglas aplican al mismo elemento, gana la más
+   "específica". Orden de mayor a menor especificidad:
+
+   1. !important    → fuerza el estilo (evitar usar si es posible)
+   2. Estilos inline → style="..." en el HTML
+   3. ID            → #mi-id        (especificidad: 0,1,0,0)
+   4. Clase         → .mi-clase     (especificidad: 0,0,1,0)
+   5. Pseudo-clase  → :hover        (especificidad: 0,0,1,0)
+   6. Etiqueta      → p, h1, div    (especificidad: 0,0,0,1)
+   7. Universal     → *             (especificidad: 0,0,0,0)
+
+   Si dos reglas tienen la misma especificidad, gana la que
+   aparece DESPUÉS en el CSS (la cascada).
+   ══════════════════════════════════════════════════════════════ */
+
+/* Ejemplo de !important (usar solo como último recurso): */
+.forzado {
+  color: red !important;
+  /* !important sobreescribe cualquier otra regla para esa propiedad,
+     sin importar la especificidad. Dificulta el mantenimiento. */
+}
+
+
+/* ══════════════ ESTILOS PARA EL HTML DE EJEMPLO ══════════════ */
+
+table {
+  border-collapse: collapse;
+  /* border-collapse: cómo se fusionan los bordes de la tabla.
+     collapse → los bordes adyacentes se funden en uno.
+     separate (default) → cada celda tiene su propio borde. */
+  width: 100%;
+  max-width: 600px;
+}
+
+th, td {
+  border: 1px solid #d4c5a9;
+  padding: 8px 12px;
+  text-align: left;
+  /* text-align: alineación horizontal del texto.
+     left | center | right | justify */
+}
+
+th {
+  background-color: #1a1a2e;
+  color: #f5f0e8;
+}
+
+tr:nth-child(even) {
+  /* :nth-child(even) → filas pares. odd → impares.
+     También: :nth-child(3) → tercera fila exacta. */
+  background-color: #ede8de;
+}
+
+form {
+  max-width: 500px;
+  margin: 20px 0;
+}
+
+input[type="text"],
+textarea,
+select {
+  /* Selector de atributo: input[type="text"] → solo inputs de tipo text.
+     [atributo]          → tiene el atributo
+     [atributo="valor"]  → atributo con ese valor exacto
+     [atributo^="valor"] → atributo que empieza por ese valor
+     [atributo$="valor"] → atributo que termina con ese valor
+     [atributo*="valor"] → atributo que contiene ese valor */
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #d4c5a9;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: inherit;
+  /* inherit → hereda el valor del elemento padre.
+     Útil cuando el navegador aplica fuentes diferentes a inputs. */
+  background-color: #fff;
+  transition: border-color 0.2s ease;
+}
+
+input[type="text"]:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--color-acento);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(200, 164, 94, 0.2);
+}
+
+button[type="submit"] {
+  background-color: var(--color-primario);
+  color: #fff;
+  border: none;
+  /* border: none → sin borde (los botones tienen borde por defecto). */
+  padding: 10px 24px;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  /* cursor: pointer → el cursor cambia a manito al pasar sobre el botón. */
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #2e2e5e;
+  transform: translateY(-1px);
+}
+
+button[type="submit"]:active {
+  transform: translateY(0);
+}
+
+ul, ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+li {
+  margin-bottom: 0.4rem;
+}
